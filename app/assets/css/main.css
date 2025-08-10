@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@custom-variant light (&:where(.light, .light *));
+@layer components {
+  .bgFon {
+    background-color: antiquewhite;
+  }
+  .bgFonDev {
+    background-color: #03040A;
+  }
+  .text-shadow-adov {
+    text-shadow: 0 0px 10px rgba(219, 71, 71, 0.5);
+  }
+  .bg-button {
+    background-color: #47D7DB;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  background-color: #03040A;
+  text-shadow: 0 0px 10px rgba(71, 215, 219, 0.5);
+}
