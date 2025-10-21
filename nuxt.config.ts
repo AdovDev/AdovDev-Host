@@ -16,6 +16,18 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/image',
     '@nuxt/eslint',
-    '@nuxt/content'
-  ]
+    '@nuxt/content',
+    'reka-ui/nuxt',
+    '@nuxtjs/i18n',
+  ],
+
+  i18n: {
+    strategy: 'prefix_except_default', // дефолт без префикса, другие языки с префиксом
+    defaultLocale: 'en',
+    langDir: 'locales/',
+    locales: [
+      { code: 'en', file: 'en.json', name: 'English' },
+      { code: 'ru', file: 'ru.json', name: 'Русский' }
+    ]
+  }
 })

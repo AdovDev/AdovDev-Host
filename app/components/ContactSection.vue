@@ -1,118 +1,144 @@
 <template>
-  <section id="contacts" class="py-20 bg-gradient-to-br bgFonDev light:bgFon">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 justify-between gap-12 items-center">
-          <!-- Contact Form -->
-          <div class="bg-gradient-to-br from-teal-900/30 to-teal-800/20 backdrop-blur-lg p-8 border border-teal-700/30">
-            <h2 class="text-2xl font-bold text-white mb-8 text-center">Обсудим проект?</h2>
-            
-            <form @submit.prevent="submitForm" class="space-y-6">
-              <!-- Name Fields -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm text-teal-300 mb-2">Имя</label>
-                  <UInput 
-                    v-model="form.firstName"
-                    placeholder="Иван"
-                    variant="outline"
-                    color="teal"
-                    class="bg-gray-800/50"
+  <section
+    id="contacts"
+    class="py-10 bg-gradient-to-br bgFonDev light:bgFon relative"
+  >
+    <div class="container mx-auto">
+      <div class="container">
+        <div
+          class="grid grid-cols-1 border-gray-800 pt-10 lg:grid-cols-2 justify-between gap-12 items-center"
+        >
+          <div class="flex items-center justify-between container relative">
+            <!-- Contact Form -->
+            <div
+              class="bg-gradient-to-br rounded-4xl shadowDev to-white/10 from-white/5 backdrop-blur-glass shadow-glass p-8 border border-white/20"
+              
+            >
+              <h2 class="text-2xl font-bold text-white mb-8 text-center">
+                {{ t("contactSection.discussProject") }}
+              </h2>
+
+              <form class="space-y-6" @submit.prevent="submitForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="container flex flex-col">
+                    <label class="block text-sm text-white mb-2">{{
+                      t("contactSection.firstName")
+                    }}</label>
+                    <input
+                      v-model="form.firstName"
+                      class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-300/40 outline-0 transition duration-300 ease-in-out"
+                    />
+                  </div>
+                  <div class="container flex flex-col">
+                    <label class="block text-sm text-white mb-2">{{
+                      t("contactSection.lastName")
+                    }}</label>
+                    <input
+                      v-model="form.lastName"
+                      class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
+                    />
+                  </div>
+                </div>
+
+                <div class="container flex flex-col">
+                  <label class="block text-sm text-white mb-2">{{
+                    t("contactSection.email")
+                  }}</label>
+                  <input
+                    v-model="form.email"
+                    type="email"
+                    class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
                   />
                 </div>
-                <div>
-                  <label class="block text-sm text-teal-300 mb-2">Фамилия</label>
-                  <UInput 
-                    v-model="form.lastName"
-                    placeholder="Фамилия"
-                    variant="outline"
-                    color="teal"
-                    class="bg-gray-800/50"
+
+                <div class="container flex flex-col">
+                  <label class="block text-sm text-white mb-2">{{
+                    t("contactSection.phone")
+                  }}</label>
+                  <input
+                    v-model="form.phone"
+                    class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
                   />
                 </div>
-              </div>
-              
-              <!-- Email -->
-              <div>
-                <label class="block text-sm text-teal-300 mb-2">Email</label>
-                <UInput 
-                  v-model="form.email"
-                  placeholder="test@gmail.com"
-                  type="email"
-                  variant="outline"
-                  color="teal"
-                  class="bg-gray-800/50"
-                />
-              </div>
-              
-              <!-- Phone -->
-              <div>
-                <label class="block text-sm text-teal-300 mb-2">Номер телефона</label>
-                <UInput 
-                  v-model="form.phone"
-                  placeholder="+7 (123) 456-78-90"
-                  variant="outline"
-                  color="teal"
-                  class="bg-gray-800/50"
-                />
-              </div>
-              
-              <!-- Message -->
-              <div>
-                <label class="block text-sm text-teal-300 mb-2">Сообщение</label>
-                <UTextarea 
-                  v-model="form.message"
-                  placeholder="Ты хочешь, заказ?"
-                  rows="4"
-                  variant="outline"
-                  color="teal"
-                  class="bg-gray-800/50"
-                />
-              </div>
-              
-              <!-- Submit Button -->
-              <UButton 
-                type="submit"
-                color="teal"
-                size="lg"
-                class="w-full"
-                :loading="isSubmitting"
+
+                <div class="container flex flex-col">
+                  <label class="block text-sm text-white mb-2">{{
+                    t("contactSection.message")
+                  }}</label>
+                  <textarea
+                    v-model="form.message"
+                    rows="3"
+                    maxlength="500"
+                    class="border-white/20 border-2 px-4 py-2 rounded-t-3xl rounded-bl-3xl rounded-br-sm focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full cursor-pointer bg-gray-700/90 hover:bg-teal-600/30 text-white font-bold py-2 rounded-full transition duration-300 ease-in-out"
+                  :loading="isSubmitting"
+                >
+                  {{ t("contactSection.send") }}
+                </button>
+              </form>
+            </div>
+
+            <!-- Hover Actions -->
+            <div class="flex flex-col ml-4">
+              <!-- Telegram -->
+              <div
+                class="group relative w-12 h-30 bg-gradient-to-br from-blue-500/5 to-blue-600/5 rounded-t-full flex items-center justify-center border border-blue-500/20"
               >
-                Отправить!
-              </UButton>
-            </form>
+                <Icon name="mdi:telegram" class="text-white w-6 h-6" />
+                <div
+                  class="absolute top-0 left-full h-30 drop-shadow-[#001eff30] drop-shadow-md ml-4 w-64 bg-blue-900/10 backdrop-blur-glass shadow-glass border border-blue-500/20 rounded-3xl p-4 text-white opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 ease-out z-10 text-start"
+                >
+                  <h3 class="font-bold text-blue-400 mb-1">
+                    {{ t("contactSection.telegram") }}
+                  </h3>
+                  <p class="text-sm text-gray-300">
+                    {{ t("contactSection.telegramText") }}
+                  </p>
+                  <a
+                    href="https://t.me/adovdev"
+                    target="_blank"
+                    class="inline-block mt-2 text-sm flex-1 bg-blue-500 text-white rounded-2xl px-3 py-1 hover:opacity-90 transition"
+                  >
+                    {{ t("contactSection.open") }}
+                  </a>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div
+                class="group relative w-12 h-30 bg-gradient-to-br from-teal-500/5 to-teal-600/5 flex items-center rounded-b-full justify-center border border-teal-500/20"
+              >
+                <Icon name="heroicons:envelope" class="text-white w-6 h-6" />
+                <div
+                  class="absolute top-0 left-full h-30 drop-shadow-[#37ff0030] drop-shadow-md ml-4 w-64 bg-teal-900/10 border backdrop-blur-glass shadow-glass border-teal-500/20 rounded-3xl p-4 text-white opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 ease-out z-10"
+                >
+                  <h3 class="font-bold text-teal-400 mb-1">Email</h3>
+                  <p class="text-sm text-gray-300">hello@adovdev.com</p>
+                  <a
+                    href="mailto:hello@adovdev.com"
+                    class="inline-block mt-2 text-sm bg-teal-600 text-white rounded-2xl px-3 py-1 hover:opacity-90 transition"
+                  >
+                    {{ t("contactSection.write") }}
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          
+
           <!-- Contact Info -->
           <div class="space-y-8">
             <div>
-              <h3 class="text-3xl font-bold text-white mb-6">Свяжитесь с нами</h3>
-              <p class="text-gray-300 leading-relaxed">
-                Готовы обсудить ваш проект? Заполните форму, и мы свяжемся с вами в ближайшее время.
+              <h3 class="text-3xl font-bold text-center text-white mb-6">
+                {{ t("contactSection.getInTouch") }}
+              </h3>
+              <p class="text-gray-300 leading-relaxed text-center">
+                {{ t("contactSection.infoText") }}
               </p>
-            </div>
-            
-            <!-- Contact Methods -->
-            <div class="space-y-4">
-              <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-teal-500/20 to-teal-600/20 flex items-center justify-center border border-teal-500/30">
-                  <Icon name="heroicons:envelope" class="w-6 h-6 text-teal-400" />
-                </div>
-                <div>
-                  <p class="text-white font-medium">Email</p>
-                  <p class="text-gray-400">hello@adovdev.com</p>
-                </div>
-              </div>
-              
-              <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-teal-500/20 to-teal-600/20 flex items-center justify-center border border-teal-500/30">
-                  <Icon name="heroicons:phone" class="w-6 h-6 text-teal-400" />
-                </div>
-                <div>
-                  <p class="text-white font-medium">Телефон</p>
-                  <p class="text-gray-400">+7 (999) 123-45-67</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -122,39 +148,27 @@
 </template>
 
 <script setup>
-const form = ref({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  message: ''
-})
+import { reactive, ref } from "vue";
+import { useI18n } from "#i18n";
 
-const isSubmitting = ref(false)
+const { t } = useI18n();
 
-const submitForm = async () => {
-  isSubmitting.value = true
-  
-  try {
-    // Handle form submission
-    console.log('Form submitted:', form.value)
-    
-    // Reset form
-    form.value = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      message: ''
-    }
-    
-    // Show success message
-    // You can add toast notification here
-    
-  } catch (error) {
-    console.error('Form submission error:', error)
-  } finally {
-    isSubmitting.value = false
-  }
+const form = reactive({
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  message: "",
+});
+
+const isSubmitting = ref(false);
+
+function submitForm() {
+  isSubmitting.value = true;
+  console.log(form);
+  setTimeout(() => {
+    isSubmitting.value = false;
+    alert(t("contactSection.formSent"));
+  }, 1000);
 }
 </script>

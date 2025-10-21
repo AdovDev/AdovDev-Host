@@ -1,21 +1,86 @@
 @import "tailwindcss";
-@custom-variant light (&:where(.light, .light *));
+
 @layer components {
-  .bgFon {
-    background-color: antiquewhite;
+
+  /* — Единый стиль кнопок — */
+  .buttonRed {
+    @apply border py-2 px-4 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
+    backdrop-filter: blur(8px) saturate(160%) brightness(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(160%) brightness(120%);
+    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05), inset 0 0 12px rgba(255, 255, 255, 0.04);
   }
+
+  /* — Эффект жидкого стекла (мягкий, неяркий блюр) — */
+  .backdrop-blur-glass {
+    backdrop-filter: blur(10px) saturate(160%) brightness(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(120%);
+  }
+  .header-blur-glass {
+    backdrop-filter: blur(10px) saturate(160%) brightness(85%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(85%);
+  }
+
+  /* — Тень как в iOS 26 (мягкая, рассеянная) — */
+  .shadow-glass {
+    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
+      inset 0 0 12px rgba(255, 255, 255, 0.05);
+  }
+  .header-shadow-glass {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05),
+      inset 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+
+
+  /* — Глобальный фон — */
   .bgFonDev {
-    background-color: #03040A;
+    background-color: #03040a;
   }
-  .text-shadow-adov {
+
+  /* — Текстовые эффекты — */
+  .textDev {
+    text-shadow: 0 0px 10px rgba(255, 255, 255, 0.3);
+  }
+
+  .textAdov {
+    text-shadow: 0 0px 10px rgba(71, 214, 219, 0.5);
+  }
+
+  .textAdovRed {
     text-shadow: 0 0px 10px rgba(219, 71, 71, 0.5);
   }
-  .bg-button {
-    background-color: #47D7DB;
+
+  .animationInfinite {
+    animation: infinite 2s ease-in-out infinite;
   }
-}
-html {
-  scroll-behavior: smooth;
-  background-color: #03040A;
-  text-shadow: 0 0px 10px rgba(71, 215, 219, 0.5);
+
+  /* — Плавный скролл и мягкий текст по умолчанию — */
+  html {
+    color: white;
+    background-color: #03040a;
+    scroll-behavior: smooth;
+    text-shadow: 0 0px 10px rgba(255, 255, 255, 0.5);
+  }
+
+  /* — Анимация для header (плавное появление) — */
+  .header-transition {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      backdrop-filter 0.3s ease, background-color 0.3s ease;
+  }
+
+  /* — Эффект появления попапа (мягкий, как в iOS) — */
+  .popup-appear {
+    animation: popupIn 0.25s ease-out forwards;
+  }
+
+  @keyframes popupIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
 }
