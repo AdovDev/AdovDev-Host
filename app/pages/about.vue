@@ -4,8 +4,10 @@
     <section class="flex flex-col lg:flex-row items-center h-screen gap-16">
       <!-- Левый блок: текст -->
       <div class="flex-1 flex flex-col justify-center gap-10">
-        <h1 class="text-5xl lg:text-6xl flex justify-start items-center gap-4 font-bold text-teal-400">
-          <span class="font-normal text-white">{{ t('about.title') }}</span>
+        <h1
+          class="text-5xl lg:text-6xl flex justify-start items-center gap-4 font-bold text-teal-400"
+        >
+          <span class="font-normal text-white">{{ t("about.title") }}</span>
           <span class="textAdov"
             >Adov<span
               class="animate-pulse cursor-default ease-in-out duration-300 transition-all"
@@ -14,7 +16,7 @@
           >
         </h1>
         <p class="text-xl text-[#FFFFFF] max-w-lg">
-          {{ t('about.description') }}
+          {{ t("about.description") }}
         </p>
       </div>
 
@@ -31,10 +33,10 @@
           class="bg-white/15 border-2 border-white/25 p-8 mb-40 rounded-4xl text-center"
         >
           <h3 class="font-bold text-[#47D7DB] textAdov text-2xl">
-            {{ t('about.projects') }}
+            {{ t("about.projects") }}
           </h3>
           <p class="text-[#FFFFFF] mt-2">
-            {{ t('about.fullDev') }}
+            {{ t("about.fullDev") }}
           </p>
         </div>
         <div
@@ -44,17 +46,17 @@
             WorldSkills
           </h3>
           <p class="text-[#FFFFFF]/90 mt-2">
-            {{ t('about.tournament') }}
+            {{ t("about.tournament") }}
           </p>
         </div>
         <div
           class="bg-white/5 border-2 border-white/15 p-8 mt-40 rounded-4xl text-center"
         >
           <h3 class="font-bold text-[#47D7DB]/80 textAdovj text-2xl">
-            {{ t('about.cooperation') }}
+            {{ t("about.cooperation") }}
           </h3>
           <p class="text-[#FFFFFF]/80 mt-2">
-            {{ t('about.cooperationDescription') }}
+            {{ t("about.cooperationDescription") }}
           </p>
         </div>
       </div>
@@ -64,9 +66,11 @@
     <section class="flex flex-col lg:flex-row items-center h-screen gap-12">
       <!-- Левый блок: описание команды -->
       <div class="flex-1 flex flex-col justify-center space-y-6">
-        <h2 class="text-5xl font-bold text-[#47D7DB]">{{ t('about.command') }}</h2>
+        <h2 class="text-5xl font-bold text-[#47D7DB]">
+          {{ t("about.command") }}
+        </h2>
         <p class="text-xl text-[#FFFFFF] max-w-lg">
-          {{ t('about.commandDescription') }}
+          {{ t("about.commandDescription") }}
         </p>
       </div>
 
@@ -84,15 +88,17 @@
           <div
             class="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-80 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300"
           >
-            <h3 class="text-xl font-bold text-teal-400 textAdov mb-2">{{ t('about.ilyas') }}</h3>
+            <h3 class="text-xl font-bold text-teal-400 textAdov mb-2">
+              {{ t("about.ilyas") }}
+            </h3>
             <p class="text-[#FFFFFF] mb-4 text-sm">
-              {{ t('about.ilyasDescription') }}
+              {{ t("about.ilyasDescription") }}
             </p>
             <NuxtLink
-              to="/ilyas"
+              :to="langRoute('/ilyas')"
               class="px-3 py-1 bg-teal-400 text-black cursor-pointer rounded-4xl hover:opacity-90 transition text-sm"
             >
-              {{ t('about.button') }}
+              {{ t("about.button") }}
             </NuxtLink>
           </div>
         </div>
@@ -108,15 +114,17 @@
           <div
             class="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-80 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300"
           >
-            <h3 class="text-xl font-bold text-teal-400 textAdov mb-2">{{ t('about.egor') }}</h3>
+            <h3 class="text-xl font-bold text-teal-400 textAdov mb-2">
+              {{ t("about.egor") }}
+            </h3>
             <p class="text-[#FFFFFF] mb-4 text-sm">
-              {{ t('about.egorDescription') }}
+              {{ t("about.egorDescription") }}
             </p>
             <NuxtLink
-              to="/egor"
+              :to="langRoute('/egor')"
               class="px-3 py-1 bg-teal-400 text-black cursor-pointer rounded-4xl hover:opacity-90 transition text-sm"
             >
-              {{ t('about.button') }}
+              {{ t("about.button") }}
             </NuxtLink>
           </div>
         </div>
@@ -126,19 +134,25 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import { setSeo } from '~/utils/seo'
+import { useI18n } from "vue-i18n";
+import { setSeo } from "~/utils/seo";
+const { t, locale } = useI18n();
 
-const { t, locale } = useI18n()
+const currentLocale = locale.value || "en"; // fallback на случай SSR
 
-const currentLocale = locale.value || 'en'; // fallback на случай SSR
+const langRoute = (path: string) => {
+  if (locale.value === "ru") {
+    return path === "/" ? "/ru" : "/ru" + path;
+  }
+  return path;
+};
 
 setSeo({
-  page: 'about', // 'services', 'contact'
-  url: `https://adovdev.com${currentLocale === 'ru' ? '/ru' : ''}`,
+  page: "about", // 'services', 'contact'
+  url: `https://adovdev.com${currentLocale === "ru" ? "/ru" : ""}`,
   hreflangs: [
-    { lang: 'en', href: 'https://adovdev.com' },
-    { lang: 'ru', href: 'https://adovdev.com/ru' }
-  ]
-})
+    { lang: "en", href: "https://adovdev.com" },
+    { lang: "ru", href: "https://adovdev.com/ru" },
+  ],
+});
 </script>

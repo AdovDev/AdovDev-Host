@@ -7,7 +7,7 @@
           src="/images/Egor.png"
           alt="Egor Korkin"
           class="w-40 h-40 object-cover rounded-full"
-        />
+        >
       </div>
 
       <h1 class="text-4xl font-semibold textAdovRed">{{ t("egor.name") }}</h1>
@@ -25,7 +25,7 @@
         :key="award.title"
         class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 hover:bg-white/10 border border-white/10 rounded-3xl p-6 transition-all duration-300 shadowDev hover:scale-[1.03]"
       >
-        <img :src="award.icon" alt="icon" class="w-10 h-10 mb-2" />
+        <img :src="award.icon" alt="icon" class="w-10 h-10 mb-2" >
         <p class="font-medium text-lg">{{ award.title }}</p>
         <span class="text-sm opacity-75">{{ award.year }}</span>
       </div>
@@ -40,7 +40,7 @@
           :key="award.title + '-stand'"
           class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border border-white/10 rounded-3xl p-4 shadowDev hover:scale-105 transition-all duration-300"
         >
-          <img :src="award.icon" alt="icon" class="w-8 h-8 text-amber-400" />
+          <img :src="award.icon" alt="icon" class="w-8 h-8 text-amber-400" >
           <span class="text-xs opacity-80">{{ award.title }}</span>
         </div>
       </div>

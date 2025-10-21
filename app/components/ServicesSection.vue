@@ -1,5 +1,5 @@
 <template>
-  <section class="py-15 bgFonDev w-full light:bgFon">
+  <section class="py-15 max-[49.9rem]:px-4 bgFonDev w-full light:bgFon">
     <div class="w-full">
       <h2 class="text-4xl font-bold text-center text-white mb-16">{{ t("services.title") }}</h2>
 

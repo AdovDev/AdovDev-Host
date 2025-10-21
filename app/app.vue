@@ -1,5 +1,5 @@
 <template>
-  <div class="bgFonDev min-h-screen relative lg:mx-30">
+  <div class="bgFonDev min-h-screen relative sm:mx-30">
     <HeaderComponent :is-hidden="isHidden" />
 
     <NuxtPage />

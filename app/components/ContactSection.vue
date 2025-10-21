@@ -27,7 +27,7 @@
                     <input
                       v-model="form.firstName"
                       class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-300/40 outline-0 transition duration-300 ease-in-out"
-                    />
+                    >
                   </div>
                   <div class="container flex flex-col">
                     <label class="block text-sm text-white mb-2">{{
@@ -36,7 +36,7 @@
                     <input
                       v-model="form.lastName"
                       class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                    />
+                    >
                   </div>
                 </div>
 
@@ -48,7 +48,7 @@
                     v-model="form.email"
                     type="email"
                     class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                  />
+                  >
                 </div>
 
                 <div class="container flex flex-col">
@@ -58,7 +58,7 @@
                   <input
                     v-model="form.phone"
                     class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                  />
+                  >
                 </div>
 
                 <div class="container flex flex-col">
@@ -70,7 +70,7 @@
                     rows="3"
                     maxlength="500"
                     class="border-white/20 border-2 px-4 py-2 rounded-t-3xl rounded-bl-3xl rounded-br-sm focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                  ></textarea>
+                  />
                 </div>
 
                 <button
@@ -118,9 +118,9 @@
                   class="absolute top-0 left-full h-30 drop-shadow-[#37ff0030] drop-shadow-md ml-4 w-64 bg-teal-900/10 border backdrop-blur-glass shadow-glass border-teal-500/20 rounded-3xl p-4 text-white opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 ease-out z-10"
                 >
                   <h3 class="font-bold text-teal-400 mb-1">Email</h3>
-                  <p class="text-sm text-gray-300">hello@adovdev.com</p>
+                  <p class="text-sm text-gray-300">adovdev@gmail.com</p>
                   <a
-                    href="mailto:hello@adovdev.com"
+                    href="mailto:adovdev@gmail.com"
                     class="inline-block mt-2 text-sm bg-teal-600 text-white rounded-2xl px-3 py-1 hover:opacity-90 transition"
                   >
                     {{ t("contactSection.write") }}

@@ -30,7 +30,7 @@
         type="text"
         name="search"
         :placeholder="t('projects.search')"
-      />
+      >
     </div>
 
     <!-- Работы -->
@@ -46,7 +46,7 @@
           :alt="work.name"
           class="w-full object-cover transition-transform duration-500 group-hover:scale-102"
           loading="lazy"
-        />
+        >
 
         <!-- Hover Overlay -->
         <div
@@ -91,7 +91,7 @@
           :src="selectedWork.image"
           :alt="selectedWork.name"
           class="w-full rounded-3xl mb-6"
-        />
+        >
         <h3 class="text-3xl font-bold mb-4">{{ selectedWork.name }}</h3>
         <p class="text-gray-100 mb-4">{{ selectedWork.description }}</p>
 
