@@ -9,7 +9,7 @@
         <!-- Левая часть — форма -->
         <div class="flex flex-col md:flex-row items-center justify-center min-[60rem]:justify-start relative">
           <div
-            class="bg-gradient-to-br rounded-4xl shadowDev to-white/10 from-white/5 backdrop-blur-glass shadow-glass p-8 border border-white/20 w-full max-w-md"
+            class="bg-gradient-to-br rounded-4xl shadowDev to-white/10 from-white/5 shadow-glass p-8 border border-white/20 w-full max-w-md"
           >
             <h2 class="text-2xl font-bold text-white mb-8 text-center">
               {{ t("contactSection.discussProject") }}

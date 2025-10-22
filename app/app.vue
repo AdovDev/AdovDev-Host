@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!isMounted"
-    class="bg-black absolute inset-0 z-100 flex items-center justify-center"
+    class="bg-black fixed inset-0 z-100 flex items-center justify-center"
   >
     <p class="text-center mt-10 text-2xl text-white">Загрузка...</p>
   </div>

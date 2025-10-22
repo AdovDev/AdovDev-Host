@@ -1,6 +1,6 @@
 <template>
   <main
-    class="flex flex-col px-0 w-full items-center justify-center gap-32 mt-0 max-[26.5rem]:mt-10"
+    class="flex flex-col px-0 w-full items-center justify-center gap-32 mt-10 max-[26.5rem]:mt-10"
   >
     <!-- Hero Section -->
     <section class="flex flex-col items-center w-full">

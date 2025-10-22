@@ -2,7 +2,9 @@
   <section class="container mx-auto gap-10 flex flex-col">
     <!-- Фильтры -->
     <div class="flex flex-wrap justify-between items-center gap-4">
-      <div class="flex fade-up w-full max-[20rem]:flex-col justify-center items-center gap-4">
+      <div
+        class="flex fade-up w-full max-[20rem]:flex-col justify-center items-center gap-4"
+      >
         <h2 class="text-3xl font-bold text-start text-white">
           {{ t("projects.filters") }}
         </h2>
@@ -13,10 +15,12 @@
           type="text"
           name="search"
           :placeholder="t('projects.search')"
-        >
+        />
       </div>
       <!-- Теги -->
-      <div class="flex-wrap fade-up flex justify-center w-full items-center gap-2">
+      <div
+        class="flex-wrap fade-up flex justify-center w-full items-center gap-2"
+      >
         <button
           v-for="tag in allTags"
           :key="tag"
@@ -46,13 +50,15 @@
           :alt="work.name"
           class="w-full object-cover transition-transform duration-500 group-hover:scale-102"
           loading="lazy"
-        >
+        />
 
         <!-- Hover Overlay -->
         <div
           class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-6 text-center"
         >
-          <h3 class="text-white min-[30rem]:text-2xl text-md font-bold mb-2">{{ work.name }}</h3>
+          <h3 class="text-white min-[30rem]:text-2xl text-md font-bold mb-2">
+            {{ work.name }}
+          </h3>
           <p class="text-gray-200 text-sm">{{ work.description }}</p>
         </div>
       </div>
@@ -64,35 +70,36 @@
       class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
       @click.self="closeModal"
     >
-      <button
-        class="absolute backdrop-blur-glass shadow-glass top-2 right-2 bg-white/5 border-2 border-white/10 p-4 rounded-full cursor-pointer text-gray-300 hover:text-white transition-all"
-        @click="closeModal"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-
       <div
         class="bg-white/5 backdrop-blur-glass shadow-glass border border-gray-500/20 rounded-4xl max-w-2xl w-full max-[30rem]:mx-4 min-[30rem]:p-8 p-4 relative animate-fadeIn"
       >
+        <button
+          class="absolute backdrop-blur-glass shadow-glass top-0 right-0 bg-white/5 border-2 border-white/10 p-4 rounded-bl-4xl rounded-tr-4xl cursor-pointer text-gray-300 hover:text-white transition-all"
+          @click="closeModal"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
         <img
           :src="selectedWork.image"
           :alt="selectedWork.name"
           class="w-full rounded-3xl mb-6"
-        >
-        <h3 class="min-[30rem]:text-3xl text-xl font-bold mb-4">{{ selectedWork.name }}</h3>
+        />
+        <h3 class="min-[30rem]:text-3xl text-xl font-bold mb-4">
+          {{ selectedWork.name }}
+        </h3>
         <p class="text-gray-100 mb-4">{{ selectedWork.description }}</p>
 
         <div class="flex flex-wrap gap-3">

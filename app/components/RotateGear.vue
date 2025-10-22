@@ -1,9 +1,9 @@
 <template>
-  <div ref="gearContainer" class="fixed -top-1/2 blur-[10px] -right-1/2 w-full h-full overflow-visible pointer-events-none">
+  <div ref="gearContainer" class="absolute z-100 top-1 left-1 w-16 h-16 overflow-visible pointer-events-none">
     <img
-      src="/svg/gear.svg"
+      src="/svg/gear-white.svg"
       alt="Gear"
-      class="w-full h-full transform origin-center opacity-5"
+      class="w-full h-full transform origin-center"
       :style="{ rotate: rotation + 'deg' }"
     >
   </div>
@@ -17,7 +17,7 @@ const gearContainer = ref(null)
 
 const handleScroll = () => {
   // Меняем угол вращения в зависимости от прокрутки
-rotation.value = window.scrollY * 0.1  // 0.3 – скорость вращения
+rotation.value = window.scrollY * 0.3  // 0.3 – скорость вращения
 }
 
 onMounted(() => {

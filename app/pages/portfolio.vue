@@ -1,6 +1,5 @@
 <template>
   <div class="container my-30 flex flex-col gap-10">
-    <RotateGear />
     <ProjectsSection />
   </div>
 </template>

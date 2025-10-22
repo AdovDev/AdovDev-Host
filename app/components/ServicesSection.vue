@@ -7,7 +7,7 @@
       <div class="grid grid-cols-1 w-full min-[50rem]:grid-cols-2 min-[75rem]:grid-cols-3 gap-8">
         <!-- Web Design -->
         <div
-          class="fade-up bg-gradient-to-br rounded-4xl from-blue-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-blue-900/10 to-teal-800/10 shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -29,7 +29,7 @@
 
         <!-- Development -->
         <div
-          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -53,7 +53,7 @@
 
         <!-- SEO -->
         <div
-          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -75,7 +75,7 @@
 
         <!-- telegram bot-->
         <div
-          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -97,7 +97,7 @@
 
         <!-- Mobile developer -->
         <div
-          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -122,7 +122,7 @@
         <!-- view project button-->
         <NuxtLink
           :to="langRoute('/portfolio')"
-          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-blue-800/20 backdrop-blur-glass shadow-glass p-8 border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-blue-800/20 shadow-glass p-8 border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
