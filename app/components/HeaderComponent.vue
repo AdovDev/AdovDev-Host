@@ -26,7 +26,7 @@
         <nav class="hidden min-[60rem]:flex items-center duration-300 space-x-8">
           <NuxtLink
             :to="langRoute('/about')"
-            class="text-white hover:border-b font-semibold duration-50"
+            class="text-white hover:border-b text-nowrap font-semibold duration-50"
             >{{ t("header.about") }}</NuxtLink
           >
           <NuxtLink

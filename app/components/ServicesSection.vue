@@ -121,7 +121,7 @@
 
         <!-- view project button-->
         <NuxtLink
-          :to="langRoute('/projects')"
+          :to="langRoute('/portfolio')"
           class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-blue-800/20 backdrop-blur-glass shadow-glass p-8 border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
