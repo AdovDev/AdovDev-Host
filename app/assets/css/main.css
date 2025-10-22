@@ -33,30 +33,6 @@ link {
       inset 0 0 12px rgba(0, 0, 0, 0.05);
   }
 
-  /* fallback для браузеров без поддержки backdrop-filter */
-  @supports not (backdrop-filter: blur(1px)) {
-    .buttonRed {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
-
-    .backdrop-blur-glass {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
-
-    .header-blur-glass {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
-  }
-
   /* — Тени — */
   .shadow-glass {
     box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
@@ -124,6 +100,29 @@ link {
     100% {
       opacity: 1;
       transform: scale(1.1) translateY(0);
+    }
+  }
+  /* fallback для браузеров без поддержки backdrop-filter */
+  @supports not (backdrop-filter: blur(1px)) {
+    .buttonRed {
+      background-color: #03040a;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .backdrop-blur-glass {
+      background-color: #03040a;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .header-blur-glass {
+      background-color: #03040a;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
     }
   }
 }

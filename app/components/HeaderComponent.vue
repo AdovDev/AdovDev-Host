@@ -6,7 +6,7 @@
     ]"
   >
     <div
-      class="max-[40rem]:mx-6 mx-26 px-4 rounded-full header-blur-glass header-shadow-glass bg-black/5 border border-white/10"
+      class="bg-black/5 border border-white/10 max-[40rem]:mx-6 mx-26 px-4 rounded-full header-blur-glass header-shadow-glass "
     >
       <div class="w-full flex items-center justify-between py-4">
         <!-- Logo -->
@@ -23,7 +23,7 @@
         </NuxtLink>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden min-[50rem]:flex items-center space-x-8">
+        <nav class="hidden min-[50rem]:flex items-center duration-300 space-x-8">
           <NuxtLink
             :to="langRoute('/about')"
             class="text-white hover:border-b font-semibold duration-50"
@@ -316,15 +316,6 @@ watch(
     inset 0 0 12px rgba(255, 255, 255, 0.04);
 }
 
-/* fallback для браузеров без backdrop-filter */
-@supports not (backdrop-filter: blur(1px)) {
-  .buttonMobile {
-    background-color: #03040a; /* просто черный фон */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
-
 .buttonHeader {
   @apply border py-2 px-4 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
   backdrop-filter: blur(10px) saturate(160%) brightness(90%);
@@ -340,6 +331,11 @@ watch(
 }
 /* fallback для браузеров без backdrop-filter */
 @supports not (backdrop-filter: blur(1px)) {
+  .buttonMobile {
+    background-color: #03040a; /* просто черный фон */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
   .buttonHeader {
     background-color: #03040a; /* просто черный фон */
     backdrop-filter: none;
