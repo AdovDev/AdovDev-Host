@@ -2,32 +2,40 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
   vite: {
-        plugins: [
-                tailwindcss(),    
-        ],  
+    plugins: [tailwindcss()],
   },
 
   modules: [
-    '@nuxt/ui',
-    '@nuxt/scripts',
-    '@nuxt/image',
-    '@nuxt/eslint',
-    '@nuxt/content',
-    'reka-ui/nuxt',
-    '@nuxtjs/i18n',
+    "@nuxt/ui",
+    "@nuxt/scripts",
+    "@nuxt/image",
+    "@nuxt/eslint",
+    "@nuxt/content",
+    "reka-ui/nuxt",
+    "@nuxtjs/i18n",
   ],
 
+  app: {
+    head: {
+      titleTemplate: "%s | AdovDev",
+      link: [
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/favicon.png" },
+      ],
+    },
+  },
+
   i18n: {
-    strategy: 'prefix_except_default', // дефолт без префикса, другие языки с префиксом
-    defaultLocale: 'en',
-    langDir: 'locales/',
+    strategy: "prefix_except_default", // дефолт без префикса, другие языки с префиксом
+    defaultLocale: "en",
+    langDir: "locales/",
     locales: [
-      { code: 'en', file: 'en.json', name: 'English' },
-      { code: 'ru', file: 'ru.json', name: 'Русский' }
-    ]
-  }
-})
+      { code: "en", file: "en.json", name: "English" },
+      { code: "ru", file: "ru.json", name: "Русский" },
+    ],
+  },
+});

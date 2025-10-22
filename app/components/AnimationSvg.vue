@@ -4,19 +4,19 @@
       <img
         src="/svg/3d-left-top.svg"
         alt="Left Top"
-        class="w-30 h-30 object-cover animate-breath-left"
-      />
+        class="w-30 h-30 max-[30rem]:w-20 max-[30rem]:h-20 object-cover animate-breath-left"
+      >
       <img
         src="/svg/3d-right-top.svg"
         alt="Right Top"
-        class="w-30 h-30 object-cover animate-breath-right"
-      />
+        class="w-30 h-30 max-[30rem]:w-20 max-[30rem]:h-20 object-cover animate-breath-right"
+      >
     </div>
     <img
       src="/svg/3d-bottom.svg"
       alt="Bottom"
-      class="w-30 h-30 object-cover animate-breath-bottom"
-    />
+      class="w-30 h-30 max-[30rem]:w-20 max-[30rem]:h-20 object-cover animate-breath-bottom"
+    >
   </div>
 </template>
 

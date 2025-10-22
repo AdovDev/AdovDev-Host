@@ -6,24 +6,24 @@
     ]"
   >
     <div
-      class="sm:mx-26 px-4 rounded-full header-blur-glass header-shadow-glass bg-black/5 border border-white/10"
+      class="max-[40rem]:mx-6 mx-26 px-4 rounded-full header-blur-glass header-shadow-glass bg-black/5 border border-white/10"
     >
       <div class="w-full flex items-center justify-between py-4">
         <!-- Logo -->
         <NuxtLink
           :to="langRoute('/')"
-          class="flex items-center gap-5 cursor-pointer"
+          class="flex min-[60rem]:w-[275px] items-center max-[20rem]:gap-2 gap-5 cursor-pointer"
         >
           <img
             src="/svg/logo.svg"
             alt="Logo"
             class="h-10 w-10 bg-white/5 rounded-full"
-          />
-          <span class="text-xl font-bold text-white">AdovDev</span>
+          >
+          <span class="min-[60rem]:text-2xl text-xl max-[15rem]:hidden font-bold text-white">AdovDev</span>
         </NuxtLink>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
+        <nav class="hidden min-[50rem]:flex items-center space-x-8">
           <NuxtLink
             :to="langRoute('/about')"
             class="text-white hover:border-b font-semibold duration-50"
@@ -42,8 +42,8 @@
         </nav>
 
         <!-- Mobile Hamburger -->
-        <div class="flex items-center md:hidden relative">
-          <button @click="toggleMobileMenu" class="buttonHeader p-2">
+        <div class="flex items-center min-[50rem]:hidden relative">
+          <button class="buttonMobile p-2" @click="toggleMobileMenu">
             <svg
               v-if="!isMobileMenuOpen"
               class="w-6 h-6 text-white"
@@ -80,42 +80,42 @@
               class="absolute -right-4 top-16 w-40 bg-white/5 header-blur-glass header-shadow-glass border border-white/10 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
             >
               <NuxtLink
-                @click="closeMobileMenu"
                 :to="langRoute('/about')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10"
+                @click="closeMobileMenu"
                 >About</NuxtLink
               >
               <NuxtLink
-                @click="closeMobileMenu"
                 :to="langRoute('/portfolio')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10"
+                @click="closeMobileMenu"
                 >Portfolio</NuxtLink
               >
               <NuxtLink
-                @click="closeMobileMenu"
                 :to="langRoute('/contact')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10"
+                @click="closeMobileMenu"
                 >Contact</NuxtLink
               >
-              <hr class="border-white/10 my-1" />
+              <hr class="border-white/10 my-1" >
               <button
-                @click="selectLanguage('en')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10 flex items-center gap-2"
+                @click="selectLanguage('en')"
               >
-                <img src="/svg/en.svg" class="w-5 h-5" /> English
+                <img src="/svg/en.svg" class="w-5 h-5" > English
               </button>
               <button
-                @click="selectLanguage('ru')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10 flex items-center gap-2"
+                @click="selectLanguage('ru')"
               >
-                <img src="/svg/ru.svg" class="w-5 h-5" /> Русский
+                <img src="/svg/ru.svg" class="w-5 h-5" > Русский
               </button>
             </div>
           </transition>
         </div>
 
         <!-- Language / Contact Buttons for desktop -->
-        <div class="hidden md:flex items-center space-x-4 relative">
+        <div class="hidden min-[50rem]:flex items-center space-x-4 relative">
           <!-- Language Switcher -->
           <div ref="langWrapper" class="relative">
             <button
@@ -123,7 +123,7 @@
               class="buttonHeader flex items-center gap-2"
               @click="toggleLanguageMenu"
             >
-              <img :src="currentLanguage.flag" class="w-6 h-6" />
+              <img :src="currentLanguage.flag" class="w-6 h-6" >
               <span class="font-semibold">{{
                 currentLanguage.code.toUpperCase()
               }}</span>
@@ -138,21 +138,21 @@
                   class="buttonHeader flex items-center gap-3 justify-center px-3 py-2 w-full"
                   @click="selectLanguage('en')"
                 >
-                  <img src="/svg/en.svg" class="w-6 h-6" /> English
+                  <img src="/svg/en.svg" class="w-6 h-6" > English
                 </button>
                 <button
                   type="button"
                   class="buttonHeader flex items-center gap-3 justify-center px-3 py-2 w-full"
                   @click="selectLanguage('ru')"
                 >
-                  <img src="/svg/ru.svg" class="w-6 h-6" /> Русский
+                  <img src="/svg/ru.svg" class="w-6 h-6" > Русский
                 </button>
               </div>
             </transition>
           </div>
 
           <!-- Contact Popup -->
-          <div ref="contactWrapper" class="relative">
+          <div ref="contactWrapper" class="relative max-[60rem]:hidden">
             <button
               type="button"
               class="buttonHeader font-semibold"
@@ -170,7 +170,7 @@
                   class="buttonHeader flex items-center gap-2 justify-center"
                   @click="openTelegram"
                 >
-                  <img src="/svg/tg.svg" class="w-5 h-5" /> Telegram
+                  <img src="/svg/tg.svg" class="w-5 h-5" > Telegram
                 </button>
                 <button
                   type="button"
@@ -216,8 +216,7 @@ let scrollTimeout = null;
 const langWrapper = ref(null);
 const contactWrapper = ref(null);
 
-const langRoute = (path) =>
-  locale.value === "ru" ? (path === "/" ? "/ru" : "/ru" + path) : path;
+const langRoute = (path) => locale.value === "ru" ? (path === "/" ? "/ru" : "/ru" + path) : path;
 
 const toggleLanguageMenu = () => {
   isLangOpen.value = !isLangOpen.value;
@@ -308,6 +307,13 @@ watch(
 .fade-scale-leave-from {
   opacity: 1;
   transform: scale(1) translateY(0);
+}
+.buttonMobile {
+  @apply border p-2 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
+  backdrop-filter: blur(10px) saturate(160%) brightness(90%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(90%);
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
 }
 .buttonHeader {
   @apply border py-2 px-4 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;

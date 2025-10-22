@@ -70,9 +70,9 @@
   "index": {
     "title": "Welcome to",
     "description": "We are a team of professional developers and designers who specialize in creating modern websites. We strive to improve the quality of our products by adding innovative methods in development and design, thinking through everything down to the smallest detail.",
-    "years": "+ Years of experience",
-    "projects": "+ Projects",
-    "clients": "+ Big companies"
+    "years": "Years of experience",
+    "projects": "Projects",
+    "clients": "Big companies"
   },
   "services": {
     "title": "Services",
