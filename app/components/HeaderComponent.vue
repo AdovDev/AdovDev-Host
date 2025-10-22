@@ -309,37 +309,25 @@ watch(
   transform: scale(1) translateY(0);
 }
 .buttonMobile {
-  @apply border p-2 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
-  backdrop-filter: blur(10px) saturate(160%) brightness(90%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(90%);
-  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
-    inset 0 0 12px rgba(255, 255, 255, 0.04);
+  @apply border py-4 px-4 cursor-pointer text-center rounded-full transition-all duration-300 ease-in-out;
+  background-color: #03040a; /* fallback для всех */
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(255,255,255,0.05), inset 0 0 12px rgba(255,255,255,0.04);
 }
 
 .buttonHeader {
-  @apply border py-2 px-4 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
-  backdrop-filter: blur(10px) saturate(160%) brightness(90%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(90%);
-  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
-    inset 0 0 12px rgba(255, 255, 255, 0.04);
-  /* Fallback для браузеров без поддержки backdrop-filter */
-  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-    background-color: #03040a; /* просто черный фон */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
+  @apply border py-2 px-4 cursor-pointer text-center rounded-full transition-all duration-300 ease-in-out;
+  background-color: #03040a; /* fallback для всех */
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(255,255,255,0.05), inset 0 0 12px rgba(255,255,255,0.04);
 }
 /* fallback для браузеров без backdrop-filter */
-@supports not (backdrop-filter: blur(1px)) {
+@supports ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
+  .buttonHeader,
   .buttonMobile {
-    background-color: #03040a; /* просто черный фон */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-  .buttonHeader {
-    background-color: #03040a; /* просто черный фон */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background-color: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px) saturate(160%) brightness(100%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(100%);
   }
 }
 

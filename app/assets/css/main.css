@@ -8,39 +8,28 @@ link {
   /* — Единый стиль кнопок с кроссбраузерным блюром — */
   .buttonRed {
     @apply border py-2 px-4 cursor-pointer text-center rounded-full transition-all duration-300 ease-in-out;
-    background: rgba(255, 255, 255, 0.05);
+    background-color: #03040a; /* fallback для всех */
     border-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px) saturate(160%) brightness(120%);
-    -webkit-backdrop-filter: blur(8px) saturate(160%) brightness(120%);
-    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
-      inset 0 0 12px rgba(255, 255, 255, 0.04);
+    box-shadow: 0 4px 24px rgba(255,255,255,0.05), inset 0 0 12px rgba(255,255,255,0.04);
   }
 
   /* — Эффект жидкого стекла — */
   .backdrop-blur-glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px) saturate(160%) brightness(120%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(120%);
-    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
-      inset 0 0 12px rgba(255, 255, 255, 0.04);
+    background-color: #03040a; /* fallback */
+    box-shadow: 0 4px 24px rgba(255,255,255,0.05), inset 0 0 12px rgba(255,255,255,0.04);
   }
 
   .header-blur-glass {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px) saturate(160%) brightness(100%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(100%);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05),
-      inset 0 0 12px rgba(0, 0, 0, 0.05);
+    background-color: #03040a; /* fallback */
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05), inset 0 0 12px rgba(0,0,0,0.05);
   }
 
   /* — Тени — */
   .shadow-glass {
-    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
-      inset 0 0 12px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05), inset 0 0 12px rgba(255, 255, 255, 0.05);
   }
   .header-shadow-glass {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05),
-      inset 0 0 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05), inset 0 0 12px rgba(0, 0, 0, 0.05);
   }
 
   /* — Глобальный фон — */
@@ -102,27 +91,23 @@ link {
       transform: scale(1.1) translateY(0);
     }
   }
-  /* fallback для браузеров без поддержки backdrop-filter */
-  @supports not (backdrop-filter: blur(1px)) {
+
+  /* — Blur только для поддерживающих браузеров — */
+  @supports ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
     .buttonRed {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px) saturate(160%) brightness(120%);
+      -webkit-backdrop-filter: blur(8px) saturate(160%) brightness(120%);
     }
-
     .backdrop-blur-glass {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px) saturate(160%) brightness(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(120%);
     }
-
     .header-blur-glass {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px) saturate(160%) brightness(100%);
+      -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(100%);
     }
   }
 }
