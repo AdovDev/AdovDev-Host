@@ -1,9 +1,9 @@
 <template>
-  <div class="min-[60rem]:space-y-30 space-y-20 mb-0 ">
+  <div class="flex flex-col w-full gap-30">
     <!-- Секция 1: О студии -->
     <section class="flex flex-col fade-up items-center w-full">
       <div
-        class="flex flex-col h-screen gap-30 justify-center items-center w-full max-[20rem]:mt-0 max-[50rem]:mt-25 max-[60rem]:mt-10 mt-0"
+        class="flex flex-col h-screen gap-30 justify-center items-center w-full max-[20rem]:mt-20 max-[50rem]:mt-25 max-[60rem]:mt-10 mt-0"
       >
         <div
           class="grid grid-cols-1 min-[60rem]:grid-cols-2 text-start justify-center items-center lg:gap-20 w-full"

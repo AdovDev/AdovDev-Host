@@ -4,10 +4,10 @@
     class="py-10 w-full bg-gradient-to-br bgFonDev relative"
   >
     <div class="container w-full mx-auto">
-      <div class="grid grid-cols-1 w-full lg:grid-cols-2 gap-12 items-center justify-between border-gray-800 pt-10">
+      <div class="grid grid-cols-1 w-full min-[60rem]:grid-cols-2 gap-12 items-center min-[60rem]:justify-between justify-center border-gray-800 pt-10">
         
         <!-- Левая часть — форма -->
-        <div class="flex flex-col md:flex-row items-center justify-start relative">
+        <div class="flex flex-col md:flex-row items-center justify-center min-[60rem]:justify-start relative">
           <div
             class="bg-gradient-to-br rounded-4xl shadowDev to-white/10 from-white/5 backdrop-blur-glass shadow-glass p-8 border border-white/20 w-full max-w-md"
           >
