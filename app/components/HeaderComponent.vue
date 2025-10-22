@@ -245,7 +245,7 @@ const openEmail = () => (window.location.href = "mailto:adovdev@gmail.com");
 // Скролл для скрытия хедера
 const handleScroll = () => {
   const current = window.scrollY;
-  if (current > lastScroll && current > 50) {
+  if (current > lastScroll && current > 70) {
     isHidden.value = true;
   } else {
     isMobileMenuOpen.value = false;
@@ -253,11 +253,11 @@ const handleScroll = () => {
   }
   lastScroll = current;
 
-  // Выдвижение хедера через 1.5 сек после остановки
+  // Выдвижение хедера через 1 сек после остановки
   clearTimeout(scrollTimeout);
   scrollTimeout = setTimeout(() => {
     isHidden.value = false;
-  }, 1500);
+  }, 1000);
 };
 
 const handleDocumentClick = (e) => {
@@ -296,17 +296,17 @@ watch(
 /* Transition used for popups */
 .fade-scale-enter-active,
 .fade-scale-leave-active {
-  transition: all 0.22s ease-out;
+  transition: all 0.3s ease-out;
 }
 .fade-scale-enter-from,
 .fade-scale-leave-to {
   opacity: 0;
-  transform: scale(0.96) translateY(-6px);
+  transform: scale(1.1) translateY(-6px);
 }
 .fade-scale-enter-to,
 .fade-scale-leave-from {
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: scale(1.1) translateY(0);
 }
 .buttonMobile {
   @apply border p-2 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
@@ -314,6 +314,12 @@ watch(
   -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(90%);
   box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
     inset 0 0 12px rgba(255, 255, 255, 0.04);
+  /* Fallback для браузеров без поддержки backdrop-filter */
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    background-color: #03040a; /* просто черный фон */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 .buttonHeader {
   @apply border py-2 px-4 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
@@ -321,5 +327,11 @@ watch(
   -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(90%);
   box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
     inset 0 0 12px rgba(255, 255, 255, 0.04);
+  /* Fallback для браузеров без поддержки backdrop-filter */
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    background-color: #03040a; /* просто черный фон */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 </style>
