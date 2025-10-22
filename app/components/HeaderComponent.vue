@@ -23,7 +23,7 @@
         </NuxtLink>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden min-[50rem]:flex items-center duration-300 space-x-8">
+        <nav class="hidden min-[60rem]:flex items-center duration-300 space-x-8">
           <NuxtLink
             :to="langRoute('/about')"
             class="text-white hover:border-b font-semibold duration-50"
@@ -42,7 +42,7 @@
         </nav>
 
         <!-- Mobile Hamburger -->
-        <div class="flex items-center min-[50rem]:hidden relative">
+        <div class="flex items-center min-[60rem]:hidden relative">
           <button class="buttonMobile p-2" @click="toggleMobileMenu">
             <svg
               v-if="!isMobileMenuOpen"
@@ -77,7 +77,7 @@
           <transition name="fade-scale">
             <div
               v-if="isMobileMenuOpen"
-              class="absolute -right-4 top-16 w-40 bg-white/5 header-blur-glass header-shadow-glass border border-white/10 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
+              class="absolute -right-4 top-20 w-40 bg-white/5 header-blur-glass header-shadow-glass border border-white/10 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
             >
               <NuxtLink
                 :to="langRoute('/about')"
@@ -115,7 +115,7 @@
         </div>
 
         <!-- Language / Contact Buttons for desktop -->
-        <div class="hidden min-[50rem]:flex items-center space-x-4 relative">
+        <div class="hidden min-[60rem]:flex items-center space-x-4 relative">
           <!-- Language Switcher -->
           <div ref="langWrapper" class="relative">
             <button
@@ -152,7 +152,7 @@
           </div>
 
           <!-- Contact Popup -->
-          <div ref="contactWrapper" class="relative max-[60rem]:hidden">
+          <div ref="contactWrapper" class="relative text-nowrap">
             <button
               type="button"
               class="buttonHeader font-semibold"
@@ -248,7 +248,9 @@ const handleScroll = () => {
   if (current > lastScroll && current > 70) {
     isHidden.value = true;
   } else {
+    isLangOpen.value = false;
     isMobileMenuOpen.value = false;
+    isContactOpen.value = false;
     isHidden.value = false;
   }
   lastScroll = current;
