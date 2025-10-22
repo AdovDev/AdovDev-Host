@@ -28,10 +28,10 @@ export function useCounter(target: number, duration = 1500) {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.9 }
     )
 
-    const elements = document.querySelectorAll('.fade-up')
+    const elements = document.querySelectorAll('.fade-counter')
     elements.forEach((el) => observer.observe(el))
   })
 

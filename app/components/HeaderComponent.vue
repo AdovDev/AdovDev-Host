@@ -6,7 +6,7 @@
     ]"
   >
     <div
-      class="bg-black/45 border border-white/15 max-[40rem]:mx-6 mx-26 px-4 rounded-full header-blur-glass header-shadow-glass"
+      class="bg-black/75 border border-white/15 max-[40rem]:mx-6 mx-26 px-4 rounded-full header-blur-glass header-shadow-glass"
     >
       <div class="w-full flex items-center justify-between py-4">
         <!-- Logo -->
@@ -14,7 +14,7 @@
           :to="langRoute('/')"
           class="flex min-[70rem]:w-[275px] items-center max-[20rem]:gap-2 gap-5 cursor-pointer"
         >
-          <img src="/svg/logo.svg" alt="Logo" class="h-10 w-10 rounded-full" />
+          <img src="/svg/logo.svg" alt="Logo" class="h-10 w-10 rounded-full" >
           <span
             class="min-[70rem]:text-2xl text-xl max-[15rem]:hidden font-bold text-white"
             >AdovDev</span
@@ -83,7 +83,7 @@
           <transition name="fade-scale">
             <div
               v-if="isMobileMenuOpen"
-              class="absolute -right-4 top-20 w-40 bg-black/45 header-blur-glass header-shadow-glass border border-white/15 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
+              class="absolute -right-4 top-20 w-40 bg-black/75 header-blur-glass header-shadow-glass border border-white/15 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
             >
               <NuxtLink
                 :to="langRoute('/')"
@@ -110,25 +110,25 @@
                 @click="closeMobileMenu"
                 >{{ t("header.contact") }}</NuxtLink
               >
-              <hr class="border-white/10 my-1" />
+              <hr class="border-white/10 my-1" >
               <button
                 class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="selectLanguage('en')"
               >
-                <img src="/svg/en.svg" class="w-5 h-5" /> English
+                <img src="/svg/en.svg" class="w-5 h-5" > English
               </button>
               <button
                 class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="selectLanguage('ru')"
               >
-                <img src="/svg/ru.svg" class="w-5 h-5" /> Русский
+                <img src="/svg/ru.svg" class="w-5 h-5" > Русский
               </button>
-              <hr class="border-white/10 my-1" />
+              <hr class="border-white/10 my-1" >
               <button
                 class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="openTelegram"
               >
-                <img src="/svg/tg.svg" class="w-5 h-5" /> Telegram
+                <img src="/svg/tg.svg" class="w-5 h-5" > Telegram
               </button>
               <button
                 class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
@@ -149,7 +149,7 @@
               class="buttonHeader flex items-center gap-2"
               @click="toggleLanguageMenu"
             >
-              <img :src="currentLanguage.flag" class="w-6 h-6" />
+              <img :src="currentLanguage.flag" class="w-6 h-6" >
               <span class="font-semibold">{{
                 currentLanguage.code.toUpperCase()
               }}</span>
@@ -157,21 +157,21 @@
             <transition name="fade-scale">
               <div
                 v-if="isLangOpen"
-                class="absolute -right-37 mt-7 w-50 bg-black/45 header-blur-glass header-shadow-glass cursor-default border border-white/15 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
+                class="absolute -right-37 mt-7 w-50 bg-black/75 header-blur-glass header-shadow-glass cursor-default border border-white/15 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
               >
                 <button
                   type="button"
                   class="buttonHeader flex items-center gap-3 justify-center px-3 py-2 w-full"
                   @click="selectLanguage('en')"
                 >
-                  <img src="/svg/en.svg" class="w-6 h-6" /> English
+                  <img src="/svg/en.svg" class="w-6 h-6" > English
                 </button>
                 <button
                   type="button"
                   class="buttonHeader flex items-center gap-3 justify-center px-3 py-2 w-full"
                   @click="selectLanguage('ru')"
                 >
-                  <img src="/svg/ru.svg" class="w-6 h-6" /> Русский
+                  <img src="/svg/ru.svg" class="w-6 h-6" > Русский
                 </button>
               </div>
             </transition>
@@ -189,14 +189,14 @@
             <transition name="fade-scale">
               <div
                 v-if="isContactOpen"
-                class="absolute -right-4 mt-7 w-80 bg-black/45 header-blur-glass header-shadow-glass border border-white/15 rounded-4xl overflow-hidden z-50 p-3 flex flex-col gap-3"
+                class="absolute -right-4 mt-7 w-80 bg-black/75 header-blur-glass header-shadow-glass border border-white/15 rounded-4xl overflow-hidden z-50 p-3 flex flex-col gap-3"
               >
                 <button
                   type="button"
                   class="buttonHeader flex items-center gap-2 justify-center"
                   @click="openTelegram"
                 >
-                  <img src="/svg/tg.svg" class="w-5 h-5" /> Telegram
+                  <img src="/svg/tg.svg" class="w-5 h-5" > Telegram
                 </button>
                 <button
                   type="button"
@@ -339,15 +339,15 @@ watch(
 }
 .buttonMobile {
   @apply border py-2 px-2 cursor-pointer text-center rounded-full transition-all duration-300 ease-in-out ;
-  background-color: #03040a; /* fallback для всех */
+  background-color: #00000060; 
   border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
     inset 0 0 12px rgba(255, 255, 255, 0.04);
 }
 
 .buttonHeader {
-  @apply border py-2 px-4 cursor-pointer text-center rounded-full transition-all duration-300 ease-in-out hover:brightness-200;
-  background-color: #03040a; /* fallback для всех */
+  @apply border py-2 px-4 cursor-pointer text-center rounded-full transition-all duration-300 ease-in-out hover:brightness-150;
+  background-color: #00000060; /* fallback для всех */
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
     inset 0 0 12px rgba(255, 255, 255, 0.04);
@@ -359,8 +359,8 @@ watch(
   .buttonHeader,
   .buttonMobile {
     background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px) saturate(160%) brightness(100%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(100%);
+    backdrop-filter: blur(8px) saturate(200%) brightness(200%);
+    -webkit-backdrop-filter: blur(8px) saturate(200%) brightness(200%);
   }
 }
 </style>

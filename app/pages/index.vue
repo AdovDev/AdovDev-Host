@@ -42,7 +42,7 @@
     >
       <div class="flex flex-col justify-between items-center mb-10 sm:mb-0">
         <h2
-          class="min-[60rem]:text-[200px] fade-up max-[75rem]:text-[150px] font-semibold text-white"
+          class="min-[60rem]:text-[200px] fade-up max-[75rem]:text-[150px] font-semibold text-white fade-counter"
         >
           {{ years }}+
         </h2>
@@ -54,7 +54,7 @@
       </div>
       <div class="flex flex-col justify-between items-center mb-10 sm:mb-0">
         <h2
-          class="min-[60rem]:text-[200px] fade-up max-[75rem]:text-[150px] font-semibold text-white"
+          class="min-[60rem]:text-[200px] fade-up max-[75rem]:text-[150px] font-semibold text-white fade-counter"
         >
           {{ projects }}+
         </h2>
@@ -66,7 +66,7 @@
       </div>
       <div class="flex flex-col justify-between items-center">
         <h2
-          class="min-[60rem]:text-[200px] fade-up max-[75rem]:text-[150px] font-semibold text-white"
+          class="min-[60rem]:text-[200px] fade-up max-[75rem]:text-[150px] font-semibold text-white fade-counter"
         >
           {{ clients }}+
         </h2>
