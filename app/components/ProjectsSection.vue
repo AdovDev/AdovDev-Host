@@ -2,14 +2,14 @@
   <section class="container mx-auto gap-10 flex flex-col">
     <!-- Фильтры -->
     <div class="flex flex-wrap justify-between items-center gap-4">
-      <div class="flex w-full max-[20rem]:flex-col justify-between items-center gap-4">
+      <div class="flex w-full max-[20rem]:flex-col justify-start items-center gap-4">
         <h2 class="text-3xl font-bold text-start text-white">
           {{ t("projects.filters") }}
         </h2>
         <!-- Поиск -->
         <input
           v-model="searchQuery"
-          class="rounded-full bg-white/10 w-full px-4 py-2 outline-none border-2 border-white/15 focus:border-teal-500/90 focus:bg-teal-500/20 text-white placeholder-gray-400"
+          class="rounded-full min-[60rem]:w-1/3 bg-white/10 w-full px-4 py-2 outline-none border-2 border-white/15 focus:border-teal-500/90 focus:bg-teal-500/20 text-white placeholder-gray-400"
           type="text"
           name="search"
           :placeholder="t('projects.search')"

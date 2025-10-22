@@ -1,13 +1,13 @@
 <template>
   <section
     id="contacts"
-    class="py-10 bg-gradient-to-br bgFonDev relative"
+    class="py-10 w-full bg-gradient-to-br bgFonDev relative"
   >
-    <div class="container mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-gray-800 pt-10">
+    <div class="container w-full mx-auto">
+      <div class="grid grid-cols-1 w-full lg:grid-cols-2 gap-12 items-center justify-between border-gray-800 pt-10">
         
         <!-- Левая часть — форма -->
-        <div class="flex flex-col md:flex-row items-center justify-center relative">
+        <div class="flex flex-col md:flex-row items-center justify-start relative">
           <div
             class="bg-gradient-to-br rounded-4xl shadowDev to-white/10 from-white/5 backdrop-blur-glass shadow-glass p-8 border border-white/20 w-full max-w-md"
           >
@@ -131,10 +131,10 @@
 
         <!-- Правая часть — текст -->
         <div class="text-center lg:text-left space-y-6">
-          <h3 class="text-3xl font-bold text-white">
+          <h3 class="text-3xl text-center font-bold text-white">
             {{ t("contactSection.getInTouch") }}
           </h3>
-          <p class="text-gray-300 leading-relaxed">
+          <p class="text-gray-300 text-center leading-relaxed">
             {{ t("contactSection.infoText") }}
           </p>
         </div>
