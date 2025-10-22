@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+link {
+  font-family: "Inter", sans-serif;
+}
 
 @layer components {
   /* — Единый стиль кнопок с кроссбраузерным блюром — */
@@ -11,14 +14,6 @@
     -webkit-backdrop-filter: blur(8px) saturate(160%) brightness(120%);
     box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
       inset 0 0 12px rgba(255, 255, 255, 0.04);
-
-    /* Fallback для браузеров без поддержки backdrop-filter */
-    @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
   }
 
   /* — Эффект жидкого стекла — */
@@ -28,13 +23,6 @@
     -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(120%);
     box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
       inset 0 0 12px rgba(255, 255, 255, 0.04);
-
-    @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-      background-color: #03040a;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
   }
 
   .header-blur-glass {
@@ -43,8 +31,25 @@
     -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(100%);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05),
       inset 0 0 12px rgba(0, 0, 0, 0.05);
+  }
 
-    @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  /* fallback для браузеров без поддержки backdrop-filter */
+  @supports not (backdrop-filter: blur(1px)) {
+    .buttonRed {
+      background-color: #03040a;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .backdrop-blur-glass {
+      background-color: #03040a;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .header-blur-glass {
       background-color: #03040a;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
@@ -85,6 +90,9 @@
     scroll-behavior: smooth;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 
   /* — Анимация появления header — */
   .header-transition {
@@ -95,6 +103,17 @@
   /* — Появление попапа — */
   .popup-appear {
     animation: popupIn 0.3s ease-out forwards;
+  }
+  /* Плавное появление с подъёмом */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @keyframes popupIn {

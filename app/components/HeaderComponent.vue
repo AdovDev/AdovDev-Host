@@ -83,19 +83,19 @@
                 :to="langRoute('/about')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10"
                 @click="closeMobileMenu"
-                >About</NuxtLink
+                >{{ t("header.about") }}</NuxtLink
               >
               <NuxtLink
                 :to="langRoute('/portfolio')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10"
                 @click="closeMobileMenu"
-                >Portfolio</NuxtLink
+                >{{ t("header.portfolio") }}</NuxtLink
               >
               <NuxtLink
                 :to="langRoute('/contact')"
                 class="text-white py-2 px-3 rounded-full hover:bg-white/10"
                 @click="closeMobileMenu"
-                >Contact</NuxtLink
+              >{{ t("header.contact") }}</NuxtLink
               >
               <hr class="border-white/10 my-1" >
               <button
@@ -301,12 +301,12 @@ watch(
 .fade-scale-enter-from,
 .fade-scale-leave-to {
   opacity: 0;
-  transform: scale(1.1) translateY(-6px);
+  transform: scale(0.95) translateY(-6px);
 }
 .fade-scale-enter-to,
 .fade-scale-leave-from {
   opacity: 1;
-  transform: scale(1.1) translateY(0);
+  transform: scale(1) translateY(0);
 }
 .buttonMobile {
   @apply border p-2 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
@@ -314,13 +314,17 @@ watch(
   -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(90%);
   box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
     inset 0 0 12px rgba(255, 255, 255, 0.04);
-  /* Fallback для браузеров без поддержки backdrop-filter */
-  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+}
+
+/* fallback для браузеров без backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .buttonMobile {
     background-color: #03040a; /* просто черный фон */
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 }
+
 .buttonHeader {
   @apply border py-2 px-4 cursor-pointer text-center rounded-full bg-white/5 hover:bg-white/10 border-white/10 hover:border-sky-300/30 transition-all duration-300 ease-in-out;
   backdrop-filter: blur(10px) saturate(160%) brightness(90%);
@@ -334,4 +338,13 @@ watch(
     -webkit-backdrop-filter: none;
   }
 }
+/* fallback для браузеров без backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .buttonHeader {
+    background-color: #03040a; /* просто черный фон */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
 </style>

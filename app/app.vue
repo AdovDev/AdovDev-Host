@@ -10,7 +10,7 @@
 
     <NuxtPage />
 
-    <FooterComponent />
+    <FooterComponent class="fade-up" />
   </div>
 </template>
 
@@ -18,6 +18,8 @@
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useHead } from "#imports";
+import { useScrollReveal } from "~/composables/useScrollReveal";
+
 import seoData from "~/config/seo.json";
 
 const isMounted = ref(false);
@@ -78,4 +80,6 @@ watch(
   },
   { immediate: true }
 );
+
+useScrollReveal();
 </script>

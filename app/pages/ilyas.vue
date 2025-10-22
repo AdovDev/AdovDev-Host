@@ -3,9 +3,9 @@
     class="min-h-screen bgFonDev text-white flex flex-col items-center pt-30"
   >
     <!-- Header block -->
-    <div class="flex flex-col items-center text-center gap-4">
+    <div class="flex flex-col fade-up items-center text-center gap-4">
       <div
-        class="p-1 rounded-full backdrop-blur-glass shadow-glass bg-white/10 border border-white/10 shadow-md"
+        class="p-1 rounded-full backdrop-blur-glass shadow-glass bg-white/10 border border-white/10 shadow-md "
       >
         <img
           src="/images/ilyas.png"
@@ -24,7 +24,7 @@
 
     <!-- Achievements -->
     <div
-      class="mt-16 w-full max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-6"
+      class="mt-16 w-full max-w-4xl fade-up grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-6"
     >
       <div
         v-for="award in awards"
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Awards Stand -->
-    <div class="mt-20 mb-16 text-center">
+    <div class="mt-20 mb-16 text-center fade-up">
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("ilyas.awards") }}
       </h2>
@@ -59,6 +59,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { setSeo } from '~/utils/seo'
+import { useScrollReveal } from '~/composables/useScrollReveal';
 
 const { t, locale } = useI18n();
 
@@ -80,4 +81,12 @@ const awards = [
   { title: "WorldSkills Web", year: "2024", icon: "/svg/trophy.svg" },
   { title: "Red Diploma in IT", year: "2021-2025", icon: "/svg/lesson.svg" }
 ];
+
+definePageMeta({
+  title: "AdovDev - Ильяс Кельдибеков",
+  description: "Разработчик, сооснователь студии и Фуллстек Разработчик",
+  awards: "Награды и сертификаты"
+});
+
+useScrollReveal();
 </script>

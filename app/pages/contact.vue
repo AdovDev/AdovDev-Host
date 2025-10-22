@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center mt-10 w-full">
+  <section class="flex fade-up flex-col items-center mt-10 w-full">
     <!-- Contact Form Section -->
     <ContactSection />
   </section>
@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { setSeo } from '~/utils/seo'
 import { useI18n } from 'vue-i18n'
+import { useScrollReveal } from '~/composables/useScrollReveal';
 
 const { locale } = useI18n()
 
@@ -21,4 +22,11 @@ setSeo({
     { lang: 'ru', href: 'https://adovdev.com/ru' }
   ]
 })
+
+definePageMeta({
+  title: "AdovDev - Контакты",
+  description: "Свяжитесь с AdovDev для обсуждения вашего проекта... AdovDev - Контакты",
+});
+
+useScrollReveal();
 </script>

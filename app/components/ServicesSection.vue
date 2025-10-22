@@ -1,13 +1,13 @@
 <template>
   <section class="py-15 max-[49.9rem]:px-4 bgFonDev w-full light:bgFon">
     <div class="w-full">
-      <h2 class="text-4xl font-bold text-center text-white mb-16">{{ t("services.title") }}</h2>
+      <h2 class="text-4xl font-bold text-center fade-up text-white mb-16">{{ t("services.title") }}</h2>
 
       <!-- Services Grid -->
       <div class="grid grid-cols-1 w-full min-[50rem]:grid-cols-2 min-[75rem]:grid-cols-3 gap-8">
         <!-- Web Design -->
         <div
-          class="bg-gradient-to-br rounded-4xl from-blue-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-blue-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -29,7 +29,7 @@
 
         <!-- Development -->
         <div
-          class="bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -53,7 +53,7 @@
 
         <!-- SEO -->
         <div
-          class="bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -75,7 +75,7 @@
 
         <!-- telegram bot-->
         <div
-          class="bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -97,7 +97,7 @@
 
         <!-- Mobile developer -->
         <div
-          class="bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-teal-800/10 backdrop-blur-glass shadow-glass p-8 border border-teal-700/20 hover:border-teal-500/30 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -122,7 +122,7 @@
         <!-- view project button-->
         <NuxtLink
           :to="langRoute('/projects')"
-          class="bg-gradient-to-br rounded-4xl from-teal-900/10 to-blue-800/20 backdrop-blur-glass shadow-glass p-8 border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 hover:scale-105"
+          class="fade-up bg-gradient-to-br rounded-4xl from-teal-900/10 to-blue-800/20 backdrop-blur-glass shadow-glass p-8 border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 hover:scale-105"
         >
           <div class="text-center">
             <!-- Icon -->
@@ -144,9 +144,11 @@
 <script setup>
 // Services section logic
 import { useI18n } from 'vue-i18n';
+import { useScrollReveal } from '~/composables/useScrollReveal';
 
 const { t, locale } = useI18n();
 
 const langRoute = (path) => locale.value === "ru" ? (path === "/" ? "/ru" : "/ru" + path) : path;
 
+useScrollReveal();
 </script>

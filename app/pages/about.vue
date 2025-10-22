@@ -1,7 +1,7 @@
 <template>
   <div class="min-[60rem]:space-y-30 space-y-20 mb-0 ">
     <!-- Секция 1: О студии -->
-    <section class="flex flex-col items-center w-full">
+    <section class="flex flex-col fade-up items-center w-full">
       <div
         class="flex flex-col h-screen gap-30 justify-center items-center w-full max-[20rem]:mt-0 max-[50rem]:mt-25 max-[60rem]:mt-10 mt-0"
       >
@@ -35,7 +35,7 @@
     </section>
 
     <!-- Секция 2: Достижения -->
-    <section class="h-1/3">
+    <section class="h-1/3 fade-up">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div
           class="bg-white/15 border-2 border-white/25 p-8 lg:mb-40 rounded-4xl text-center"
@@ -71,7 +71,7 @@
     </section>
 
     <!-- Секция 3: Команда -->
-    <section class="flex flex-col flex-1 min-[60rem]:flex-row items-center h-2/3 min-[75rem]:gap-12 gap-8 ">
+    <section class="flex flex-col fade-up flex-1 min-[60rem]:flex-row items-center h-2/3 min-[75rem]:gap-12 gap-8 ">
       <!-- Левый блок: описание команды -->
       <div class="max-[60rem]:w-full flex min-[60rem]:flex-1 flex-col min-[60rem]:text-start text-center justify-center items-center space-y-6">
         <h2 class="min-[75rem]:text-5xl text-4xl text-start max-[40rem]:text-center min-[60rem]:w-full font-bold min-[40rem]:text-nowrap text-[#47D7DB]">
@@ -132,7 +132,7 @@
           </div>
           <NuxtLink
             :to="langRoute('/egor')"
-            class="absolute top-0 right-0 px-4 py-4 max-sm:px-3 max-sm:py-3 max-md:px-6 max-md:py-6  bg-teal-600 font-semibold text-white cursor-pointer rounded-bl-4xl hover:opacity-90 transition text-sm2"
+            class="absolute top-0 right-0 px-4 py-4 max-sm:px-3 max-sm:py-3 max-md:px-6 max-md:py-6  bg-teal-600 font-semibold text-white cursor-pointer rounded-bl-4xl hover:opacity-90 transition text-sm"
           >
             {{ t("about.button") }}
           </NuxtLink>
@@ -145,6 +145,8 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { setSeo } from "~/utils/seo";
+import { useScrollReveal } from "~/composables/useScrollReveal";
+
 const { t, locale } = useI18n();
 
 const currentLocale = locale.value || "en"; // fallback на случай SSR
@@ -164,4 +166,11 @@ setSeo({
     { lang: "ru", href: "https://adovdev.com/ru" },
   ],
 });
+
+definePageMeta({
+  title: "AdovDev - О нас",
+  description: "Мы — команда профессиональных разработчиков и дизайнеров, которые создают современные сайты... AdovDev - О нас",
+});
+
+useScrollReveal();
 </script>

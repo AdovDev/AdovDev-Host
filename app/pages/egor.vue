@@ -2,7 +2,7 @@
   <div class="min-h-screen bgFonDev text-white flex flex-col items-center pt-30">
     <!-- Header block -->
     <div class="flex flex-col items-center text-center gap-4">
-      <div class="p-1 rounded-full backdrop-blur-glass shadow-glass bg-white/10 border border-white/10 shadow-md">
+      <div class="p-1 rounded-full fade-up backdrop-blur-glass shadow-glass bg-white/10 border border-white/10 shadow-md">
         <img
           src="/images/Egor.png"
           alt="Egor Korkin"
@@ -19,7 +19,7 @@
     </div>
 
     <!-- Achievements -->
-    <div class="mt-16 w-full max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-6">
+    <div class="mt-16 w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-6">
       <div
         v-for="award in awards"
         :key="award.title"
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Awards Stand -->
-    <div class="mt-20 mb-16 text-center">
+    <div class="mt-20 mb-16 fade-up text-center">
       <h2 class="text-2xl mb-6 font-semibold textAdov">{{ t("egor.awards") }}</h2>
       <div class="flex gap-6 justify-center flex-wrap">
         <div
@@ -51,6 +51,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { setSeo } from '~/utils/seo'
+import { useScrollReveal } from '~/composables/useScrollReveal';
 
 const { t, locale } = useI18n();
 
@@ -70,4 +71,12 @@ const awards = [
   { title: "Frontend Certification", year: "2025", icon: "/svg/certificate.svg" },
   { title: "Red Diploma in IT", year: "2022-2025", icon: "/svg/lesson.svg" },
 ];
+
+definePageMeta({
+  title: "AdovDev - Егор Коркин",
+  description: "Разработчик, сооснователь студии и Фуллстек Разработчик... AdovDev - Егор Коркин",
+  awards: "Награды и сертификаты"
+});
+
+useScrollReveal();
 </script>

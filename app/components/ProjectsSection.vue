@@ -2,7 +2,7 @@
   <section class="container mx-auto gap-10 flex flex-col">
     <!-- Фильтры -->
     <div class="flex flex-wrap justify-between items-center gap-4">
-      <div class="flex w-full max-[20rem]:flex-col justify-start items-center gap-4">
+      <div class="flex fade-up w-full max-[20rem]:flex-col justify-center items-center gap-4">
         <h2 class="text-3xl font-bold text-start text-white">
           {{ t("projects.filters") }}
         </h2>
@@ -16,7 +16,7 @@
         >
       </div>
       <!-- Теги -->
-      <div class="flex-wrap space-x-2 space-y-2 items-center gap-2">
+      <div class="flex-wrap fade-up flex justify-center w-full items-center gap-2">
         <button
           v-for="tag in allTags"
           :key="tag"
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Работы -->
-    <div class="columns-1 md:columns-2 gap-6">
+    <div class="columns-1 fade-up md:columns-2 gap-6">
       <div
         v-for="(work, index) in filteredWorks"
         :key="index"
@@ -112,6 +112,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useI18n } from "#i18n";
+import { useScrollReveal } from "~/composables/useScrollReveal";
 
 const { locale, t } = useI18n();
 
@@ -224,6 +225,8 @@ const filteredWorks = computed(() => {
 // Модалка
 const openModal = (work) => (selectedWork.value = work);
 const closeModal = () => (selectedWork.value = null);
+
+useScrollReveal();
 </script>
 
 <style scoped>
