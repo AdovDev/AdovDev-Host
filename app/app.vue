@@ -5,11 +5,10 @@
   >
     <p class="text-center mt-10 text-2xl text-white">Загрузка...</p>
   </div>
+
   <div class="bgFonDev min-h-screen relative sm:mx-30 max-[40rem]:mx-10">
     <HeaderComponent :is-hidden="isHidden" />
-
     <NuxtPage />
-
     <FooterComponent class="fade-up" />
   </div>
 </template>
@@ -17,9 +16,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { useHead } from "#imports";
+import { useHead, useRoute } from "#imports";
 import { useScrollReveal } from "~/composables/useScrollReveal";
-
 import seoData from "~/config/seo.json";
 
 const isMounted = ref(false);
@@ -61,20 +59,39 @@ onBeforeUnmount(() => {
 // SEO
 // ------------------------------
 const { locale } = useI18n();
+const route = useRoute();
 
 watch(
   locale,
   (newLocale) => {
     const seo = seoData[newLocale] || seoData.en;
+    const currentUrl = `https://adovdev.com${route.fullPath}`;
+
     useHead({
-      title: seo.title, // Автоматически добавится “| AdovDev”
+      htmlAttrs: {
+        lang: newLocale,
+      },
+      title: seo.title,
       meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "description", content: seo.description },
         { name: "keywords", content: seo.keywords },
         { property: "og:title", content: seo.title },
         { property: "og:description", content: seo.description },
         { property: "og:image", content: seo.ogImage },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: currentUrl },
+        { name: "theme-color", content: "#111111" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.description },
+        { name: "twitter:image", content: seo.ogImage },
+      ],
+      link: [
+        { rel: "canonical", href: currentUrl },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/favicon.png" },
       ],
     });
   },
