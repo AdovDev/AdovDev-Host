@@ -36,5 +36,5 @@ jobs:
         protocol: ftp                       # можно также попробовать ftps, если поддерживается
         port: 21
         local-dir: ./dist/  # Папка с собранными файлами
-        server-dir: ./public_html/  # Целевая папка на хостинге
+        server-dir: ./  # Целевая папка на хостинге
         exclude: '**/.git*|**/node_modules/**'  # Исключения
