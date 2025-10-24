@@ -1,0 +1,13 @@
+{
+  "ru": {
+    "title": "Студия — Разработка сайтов и дизайн",
+    "description": "Разработка сайтов, брендинг и UI/UX-дизайн — студия ***",
+    "keywords": "веб-разработка, дизайн, создание сайтов, frontend, nuxt"
+  },
+  "en": {
+    "title": "Studio — Web Development & Design",
+    "description": "Web development, branding and UI/UX design — studio ***",
+    "keywords": "web development, design, website creation, frontend, nuxt"
+  }
+}
+
