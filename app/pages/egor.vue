@@ -108,7 +108,7 @@ if (import.meta.client) {
   setSeo({
     page: "egor",
     seoData: {
-      title: "Egor Korion",
+      title: "Egor Korkin",
       description: "SEO of Adov.dev",
     },
     url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
