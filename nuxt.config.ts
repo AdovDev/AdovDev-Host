@@ -38,4 +38,11 @@ export default defineNuxtConfig({
       { code: "ru", file: "ru.json", name: "Русский" },
     ],
   },
+
+  nitro: {
+    prerender: {
+      failOnError: true,
+    },
+    logLevel: 3,
+  }
 });
