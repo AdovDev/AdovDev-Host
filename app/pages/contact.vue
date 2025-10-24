@@ -6,27 +6,29 @@
 </template>
 
 <script setup>
-import { setSeo } from '~/utils/seo'
-import { useI18n } from 'vue-i18n'
-import { useScrollReveal } from '~/composables/useScrollReveal';
-import { onMounted } from 'vue';
+import { setSeo } from "~/utils/seo";
+import { useI18n } from "vue-i18n";
+import { useScrollReveal } from "~/composables/useScrollReveal";
 
-const { locale } = useI18n()
+const { locale } = useI18n();
 
-const currentLocale = locale.value || 'en'; // fallback на случай SSR
+// Только на клиенте, чтобы prerender не падал
+if (import.meta.client) {
+  const currentLocale = locale.value || "en";
 
-setSeo({
-  title: 'contact | Adov',
-  description: 'Contact Adov.dev',
-  page: 'contact',
-  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
-  hreflangs: [
-    { lang: 'en', href: 'https://adov.dev' },
-    { lang: 'ru', href: 'https://adov.dev/ru' }
-  ]
-});
+  setSeo({
+    page: "contact",
+    seoData: {
+      title: "Contact",
+      description: "Contact Adov.dev",
+    },
+    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    hreflangs: [
+      { lang: "en", href: "https://adov.dev" },
+      { lang: "ru", href: "https://adov.dev/ru" },
+    ],
+  });
+}
 
-onMounted(() => {
-  useScrollReveal();
-});
+useScrollReveal();
 </script>

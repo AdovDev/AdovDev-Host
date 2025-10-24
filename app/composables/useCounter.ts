@@ -5,22 +5,22 @@ export function useCounter(target: number, duration = 1500) {
   const started = ref(false)
 
   onMounted(() => {
+    if (!import.meta.client) return
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry) return // безопасно на случай undefined
+          if (!entry) return
           if (entry.isIntersecting && !started.value) {
             started.value = true
-            entry.target.classList.add('show') // для fade-up
-            
+            entry.target.classList.add('show')
+
             const start = performance.now()
 
             function animate(now: number) {
               const progress = Math.min((now - start) / duration, 1)
               count.value = Math.floor(progress * target)
-              if (progress < 1) {
-                requestAnimationFrame(animate)
-              }
+              if (progress < 1) requestAnimationFrame(animate)
             }
 
             requestAnimationFrame(animate)

@@ -7,24 +7,25 @@
 import { useI18n } from 'vue-i18n';
 import { setSeo } from '~/utils/seo'
 import { useScrollReveal } from '~/composables/useScrollReveal';
-import { onMounted } from 'vue';
 
 const { locale } = useI18n();
 
-const currentLocale = locale.value || 'en'; // fallback на случай SSR
+if (import.meta.client) {
+  const currentLocale = locale.value || "en";
 
-setSeo({
-  title: 'portfolio | Adov',
-  description: 'Portfolio of Adov.dev',
-  page: 'portfolio',
-  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
-  hreflangs: [
-    { lang: 'en', href: 'https://adov.dev' },
-    { lang: 'ru', href: 'https://adov.dev/ru' }
-  ]
-});
+  setSeo({
+    page: "portfolio",
+    seoData: {
+      title: "Portfolio",
+      description: "Portfolio Adov.dev",
+    },
+    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    hreflangs: [
+      { lang: "en", href: "https://adov.dev" },
+      { lang: "ru", href: "https://adov.dev/ru" },
+    ],
+  });
+}
 
-onMounted(() => {
-  useScrollReveal();
-});
+useScrollReveal();
 </script>

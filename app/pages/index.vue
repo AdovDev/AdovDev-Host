@@ -30,7 +30,9 @@
           <div
             class="flex items-center fade-up justify-center max-[60rem]:my-15 md:mt-0"
           >
-            <AnimationSvg />
+            <client-only>
+              <AnimationSvg />
+            </client-only>
           </div>
         </div>
       </div>
@@ -91,28 +93,30 @@ import { useI18n } from "vue-i18n";
 import { setSeo } from "~/utils/seo";
 import { useScrollReveal } from "~/composables/useScrollReveal";
 import { useCounter } from "~/composables/useCounter";
-import { onMounted } from "vue";
 
 const { t, locale } = useI18n();
-
-const currentLocale = locale.value || "en";
 
 const years = useCounter(4, 2000);
 const projects = useCounter(150, 3000);
 const clients = useCounter(6, 2500);
+    
 
-setSeo({
-  title: 'index | Adov',
-  description: 'Welcome to Adov.dev',
-  page: 'index',
-  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
-  hreflangs: [
-    { lang: 'en', href: 'https://adov.dev' },
-    { lang: 'ru', href: 'https://adov.dev/ru' }
-  ]
-});
+if (import.meta.client) {
+  const currentLocale = locale.value || "en";
 
-onMounted(() => {
-  useScrollReveal();
-});
+  setSeo({
+    page: "index",
+    seoData: {
+      title: "Home",
+      description: "Welcome to Adov.dev",
+    },
+    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    hreflangs: [
+      { lang: "en", href: "https://adov.dev" },
+      { lang: "ru", href: "https://adov.dev/ru" },
+    ],
+  });
+}
+
+useScrollReveal();
 </script>

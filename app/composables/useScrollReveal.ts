@@ -4,6 +4,9 @@ export function useScrollReveal() {
   const observer = ref<IntersectionObserver>()
 
   onMounted(() => {
+    // защита для SSR
+    if (!import.meta.client) return
+
     observer.value = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -13,7 +16,7 @@ export function useScrollReveal() {
           }
         })
       },
-      { threshold: 0.2 } // 20% элемента должно быть в зоне видимости
+      { threshold: 0.2 }
     )
 
     const elements = document.querySelectorAll('.fade-up')

@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxt/image",
     "@nuxt/eslint",
-    "@nuxt/content",
+    // "@nuxt/content",
     "reka-ui/nuxt",
     "@nuxtjs/i18n",
   ],
