@@ -36,6 +36,5 @@ export default defineNuxtConfig({
       cookieKey: "i18n_redirected",
       redirectOn: "root",
     },
-  },
-  nitro: { prerender: { failOnError: true }, logLevel: 3 },
+  }
 });
