@@ -65,7 +65,7 @@
           :key="social.name"
           class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border border-white/10 rounded-3xl p-4 shadowDev hover:scale-105 transition-all duration-300"
         >
-          <a :href="social.link" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center">
+          <a :href="social.link" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center gap-2">
             <img :src="social.icon" alt="icon" class="w-8 h-8" />
             <span class="text-xs opacity-80">{{ social.name }}</span>
           </a>

@@ -53,6 +53,25 @@
         </div>
       </div>
     </div>
+
+    <!-- socials -->
+    <div class="mt-4 mb-16 fade-up text-center">
+      <h2 class="text-2xl mb-6 font-semibold textAdov">
+        {{ t("ilyas.socials") }}
+      </h2>
+      <div class="flex gap-6 justify-center flex-wrap">
+        <div
+          v-for="social in socials"
+          :key="social.name"
+          class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border border-white/10 rounded-3xl p-4 shadowDev hover:scale-105 transition-all duration-300"
+        >
+          <a :href="social.link" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center gap-2">
+            <img :src="social.icon" alt="icon" class="w-8 h-8" >
+            <span class="text-xs opacity-80">{{ social.name }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -69,6 +88,16 @@ const awards = [
   { title: "WorldSkills Web", year: "2023", icon: "/svg/trophy.svg" },
   { title: "WorldSkills Web", year: "2024", icon: "/svg/trophy.svg" },
   { title: "Red Diploma in IT", year: "2021-2025", icon: "/svg/lesson.svg" }
+];
+
+const socials = [
+  { name: "GitHub", icon: "/svg/github.svg", link: "https://github.com/AdovDev" },
+  { name: "Telegram", icon: "/svg/tg.svg", link: "https://t.me/Ilyas_Adov" },
+  {
+    name: "Instagram",
+    icon: "/svg/instagram.svg",
+    link: "https://www.instagram.com/Ilyas.adov",
+  },
 ];
 
 if (import.meta.client) {
