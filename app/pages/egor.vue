@@ -38,7 +38,7 @@
     </div>
 
     <!-- Awards Stand -->
-    <div class="mt-20 mb-16 w-full fade-up text-center">
+    <div class="mt-20 mb-16 max-[40rem]:w-full fade-up text-center">
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("egor.awards") }}
       </h2>
@@ -55,7 +55,7 @@
     </div>
 
     <!-- socials -->
-    <div class="mt-4 mb-16 fade-up text-center">
+    <div class="mt-4 mb-16 max-[40rem]:w-full fade-up text-center">
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("egor.socials") }}
       </h2>

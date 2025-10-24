@@ -24,7 +24,7 @@
 
     <!-- Achievements -->
     <div
-      class="mt-16 w-full max-w-4xl fade-up grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-6"
+      class="mt-16 max-[40rem]:w-full max-w-4xl fade-up grid md:grid-cols-3 sm:grid-cols-2 gap-6"
     >
       <div
         v-for="award in awards"
@@ -55,7 +55,7 @@
     </div>
 
     <!-- socials -->
-    <div class="mt-4 mb-16 fade-up text-center">
+    <div class="mt-4 mb-16 max-[40rem]:w-full fade-up text-center">
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("ilyas.socials") }}
       </h2>
