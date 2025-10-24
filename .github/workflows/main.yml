@@ -33,6 +33,8 @@ jobs:
         server: ${{ secrets.FTP_HOST }}  # FTP-хост из hPanel (например, ftp.adovdev.com)
         username: ${{ secrets.FTP_USER }}  # Ваш FTP-логин
         password: ${{ secrets.FTP_PASS }}  # FTP-пароль
+        protocol: ftp                       # можно также попробовать ftps, если поддерживается
+        port: 21
         local-dir: ./dist/  # Папка с собранными файлами
         server-dir: ./public_html/  # Целевая папка на хостинге
         exclude: '**/.git*|**/node_modules/**'  # Исключения
