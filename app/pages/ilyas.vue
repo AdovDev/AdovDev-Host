@@ -32,7 +32,7 @@
         class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 hover:bg-white/10 border border-white/10 rounded-3xl p-6 transition-all duration-300 shadowDev hover:scale-[1.03]"
       >
         <img :src="award.icon" alt="icon" class="w-10 h-10 mb-2" >
-        <p class="font-medium text-lg">{{ award.title }}</p>
+        <p class="font-medium text-lg text-nowrap">{{ award.title }}</p>
         <span class="text-sm opacity-75">{{ award.year }}</span>
       </div>
     </div>
@@ -42,7 +42,7 @@
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("ilyas.awards") }}
       </h2>
-      <div class="flex gap-6 justify-center flex-wrap">
+      <div class="grid grid-cols-1 min-[40rem]:grid-cols-2 min-[60rem]:grid-cols-3 gap-6">
         <div
           v-for="award in awards"
           :key="award.title + '-stand'"
@@ -59,7 +59,7 @@
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("ilyas.socials") }}
       </h2>
-      <div class="flex gap-6 justify-center flex-wrap">
+      <div class="grid grid-cols-3 gap-6">
         <div
           v-for="social in socials"
           :key="social.name"

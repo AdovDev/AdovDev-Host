@@ -74,7 +74,7 @@
         class="bg-white/5 backdrop-blur-glass shadow-glass border border-gray-500/20 rounded-4xl max-w-2xl w-full max-[30rem]:mx-4 min-[30rem]:p-8 p-4 relative animate-fadeIn"
       >
         <button
-          class="absolute backdrop-blur-glass shadow-glass top-0 right-0 bg-white/45 border-2 border-white/55 p-4 rounded-bl-4xl rounded-tr-4xl cursor-pointer text-gray-300 hover:text-white transition-all"
+          class="absolute backdrop-blur-glass shadow-glass top-0 right-0 bg-black/45 border-2 border-white/15 p-4 rounded-bl-4xl rounded-tr-4xl cursor-pointer text-white transition-all"
           @click="closeModal"
         >
           <svg
@@ -83,7 +83,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-6 h-6"
+            class="w-6 h-6 hover:scale-130 transition-all hover:rotate-90"
           >
             <path
               stroke-linecap="round"

@@ -83,55 +83,55 @@
           <transition name="fade-scale">
             <div
               v-if="isMobileMenuOpen"
-              class="absolute -right-4 top-20 w-40 bg-black/75 header-blur-glass header-shadow-glass border border-white/15 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex flex-col gap-2"
+              class="absolute -right-4 top-20 w-40 bg-black/85 header-blur-glass header-shadow-glass border border-white/15 rounded-4xl overflow-hidden shadow-lg z-50 p-3 flex items-center justify-center text-center flex-col gap-2"
             >
               <NuxtLink
                 :to="langRoute('/')"
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full hover:bg-white/10"
                 @click="closeMobileMenu"
               >
                 {{ t("header.home") }}
               </NuxtLink>
               <NuxtLink
                 :to="langRoute('/about')"
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full hover:bg-white/10"
                 @click="closeMobileMenu"
                 >{{ t("header.about") }}</NuxtLink
               >
               <NuxtLink
                 :to="langRoute('/portfolio')"
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full hover:bg-white/10"
                 @click="closeMobileMenu"
                 >{{ t("header.portfolio") }}</NuxtLink
               >
               <NuxtLink
                 :to="langRoute('/contact')"
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full hover:bg-white/10"
                 @click="closeMobileMenu"
                 >{{ t("header.contact") }}</NuxtLink
               >
               <hr class="border-white/10 my-1" >
               <button
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full justify-center hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="selectLanguage('en')"
               >
                 <img src="/svg/en.svg" class="w-5 h-5" > English
               </button>
               <button
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full justify-center hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="selectLanguage('ru')"
               >
                 <img src="/svg/ru.svg" class="w-5 h-5" > Русский
               </button>
               <hr class="border-white/10 my-1" >
               <button
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full justify-center hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="openTelegram"
               >
                 <img src="/svg/tg.svg" class="w-5 h-5" > Telegram
               </button>
               <button
-                class="text-white py-2 px-3 rounded-full duration-300 hover:bg-white/10 flex items-center cursor-pointer gap-2"
+                class="text-white py-2 px-3 rounded-full duration-300 w-full justify-center hover:bg-white/10 flex items-center cursor-pointer gap-2"
                 @click="openEmail"
               >
                 <Icon name="heroicons:envelope" class="w-5 h-5" /> Email

@@ -24,29 +24,29 @@
 
     <!-- Achievements -->
     <div
-      class="mt-16 w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 px-6"
+      class="mt-16 w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 "
     >
       <div
         v-for="award in awards"
         :key="award.title"
-        class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 hover:bg-white/10 border border-white/10 rounded-3xl p-6 transition-all duration-300 shadowDev hover:scale-[1.03]"
+        class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 hover:bg-white/10 border border-white/10 rounded-3xl p-6 transition-all duration-300 shadowDev hover:scale-102"
       >
         <img :src="award.icon" alt="icon" class="w-10 h-10 mb-2" />
-        <p class="font-medium text-lg">{{ award.title }}</p>
+        <p class="font-medium text-lg text-center">{{ award.title }}</p>
         <span class="text-sm opacity-75">{{ award.year }}</span>
       </div>
     </div>
 
     <!-- Awards Stand -->
-    <div class="mt-20 mb-16 fade-up text-center">
+    <div class="mt-20 mb-16 w-full fade-up text-center">
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("egor.awards") }}
       </h2>
-      <div class="flex gap-6 justify-center flex-wrap">
+      <div class="grid grid-cols-1 min-[40rem]:grid-cols-2 min-[60rem]:grid-cols-3 gap-6">
         <div
           v-for="award in awards"
           :key="award.title + '-stand'"
-          class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border border-white/10 rounded-3xl p-4 shadowDev hover:scale-105 transition-all duration-300"
+          class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border hover:bg-white/10 border-white/10 rounded-3xl p-4 shadowDev hover:scale-102 transition-all duration-300"
         >
           <img :src="award.icon" alt="icon" class="w-8 h-8 text-amber-400" />
           <span class="text-xs opacity-80">{{ award.title }}</span>
@@ -59,11 +59,11 @@
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("egor.socials") }}
       </h2>
-      <div class="flex gap-6 justify-center flex-wrap">
+      <div class="grid grid-cols-3 gap-6">
         <div
           v-for="social in socials"
           :key="social.name"
-          class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border border-white/10 rounded-3xl p-4 shadowDev hover:scale-105 transition-all duration-300"
+          class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border hover:bg-white/10 border-white/10 rounded-3xl p-4 shadowDev hover:scale-102 transition-all duration-300"
         >
           <a :href="social.link" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center gap-2">
             <img :src="social.icon" alt="icon" class="w-8 h-8" />
