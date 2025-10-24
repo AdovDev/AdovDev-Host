@@ -52,19 +52,11 @@
 import { useI18n } from "vue-i18n";
 import { setSeo } from '~/utils/seo'
 import { useScrollReveal } from '~/composables/useScrollReveal';
+import { onMounted } from 'vue';
 
 const { t, locale } = useI18n();
 
 const currentLocale = locale.value || 'en'; // fallback на случай SSR
-
-setSeo({
-  page: 'egor', // 'services', 'contact'
-  url: `https://adovdev.com${currentLocale === 'ru' ? '/ru' : ''}`,
-  hreflangs: [
-    { lang: 'en', href: 'https://adovdev.com' },
-    { lang: 'ru', href: 'https://adovdev.com/ru' }
-  ]
-})
 
 const awards = [
   { title: "Win Design Year", year: "2024-2025", icon: "/svg/trophy.svg" },
@@ -72,11 +64,19 @@ const awards = [
   { title: "Red Diploma in IT", year: "2022-2025", icon: "/svg/lesson.svg" },
 ];
 
-definePageMeta({
-  title: "AdovDev - Егор Коркин",
-  description: "Разработчик, сооснователь студии и Фуллстек Разработчик... AdovDev - Егор Коркин",
-  awards: "Награды и сертификаты"
+setSeo({
+  title: 'Egor Korkin | Adov',
+  description: 'SEO of Adov.dev',
+  page: 'egor',
+  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
+  hreflangs: [
+    { lang: 'en', href: 'https://adov.dev' },
+    { lang: 'ru', href: 'https://adov.dev/ru' }
+  ]
 });
 
-useScrollReveal();
+onMounted(() => {
+  useScrollReveal();
+});
+
 </script>

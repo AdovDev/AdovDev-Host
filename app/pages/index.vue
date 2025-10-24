@@ -91,28 +91,28 @@ import { useI18n } from "vue-i18n";
 import { setSeo } from "~/utils/seo";
 import { useScrollReveal } from "~/composables/useScrollReveal";
 import { useCounter } from "~/composables/useCounter";
+import { onMounted } from "vue";
 
 const { t, locale } = useI18n();
+
 const currentLocale = locale.value || "en";
-
-setSeo({
-  page: "index",
-  url: `https://adovdev.com${currentLocale === "ru" ? "/ru" : ""}`,
-  hreflangs: [
-    { lang: "en", href: "https://adov.dev" },
-    { lang: "ru", href: "https://adov.dev/ru" },
-  ],
-});
-
-definePageMeta({
-  title: "AdovDev - Студия веб-разработки",
-  description:
-    "Мы — команда профессиональных разработчиков и дизайнеров, которые создают современные сайты... AdovDev - Студия веб-разработки",
-});
 
 const years = useCounter(4, 2000);
 const projects = useCounter(150, 3000);
 const clients = useCounter(6, 2500);
 
-useScrollReveal();
+setSeo({
+  title: 'index | Adov',
+  description: 'Welcome to Adov.dev',
+  page: 'index',
+  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
+  hreflangs: [
+    { lang: 'en', href: 'https://adov.dev' },
+    { lang: 'ru', href: 'https://adov.dev/ru' }
+  ]
+});
+
+onMounted(() => {
+  useScrollReveal();
+});
 </script>

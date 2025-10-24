@@ -60,20 +60,11 @@
 import { useI18n } from "vue-i18n";
 import { setSeo } from '~/utils/seo'
 import { useScrollReveal } from '~/composables/useScrollReveal';
+import { onMounted } from 'vue';
 
 const { t, locale } = useI18n();
 
 const currentLocale = locale.value || 'en'; // fallback на случай SSR
-
-setSeo({
-  page: 'ilyas', // 'services', 'contact'
-  url: `https://adovdev.com${currentLocale === 'ru' ? '/ru' : ''}`,
-  hreflangs: [
-    { lang: 'en', href: 'https://adovdev.com' },
-    { lang: 'ru', href: 'https://adovdev.com/ru' }
-  ]
-})
-
 
 const awards = [
   { title: "WorldSkills Buisness", year: "2022", icon: "/svg/trophy.svg" },
@@ -82,11 +73,18 @@ const awards = [
   { title: "Red Diploma in IT", year: "2021-2025", icon: "/svg/lesson.svg" }
 ];
 
-definePageMeta({
-  title: "AdovDev - Ильяс Кельдибеков",
-  description: "Разработчик, сооснователь студии и Фуллстек Разработчик",
-  awards: "Награды и сертификаты"
+setSeo({
+  title: 'Ilyas Keldibekov | Adov',
+  description: 'SEO of Adov.dev',
+  page: 'ilyas',
+  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
+  hreflangs: [
+    { lang: 'en', href: 'https://adov.dev' },
+    { lang: 'ru', href: 'https://adov.dev/ru' }
+  ]
 });
 
-useScrollReveal();
+onMounted(() => {
+  useScrollReveal();
+});
 </script>

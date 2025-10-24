@@ -1,6 +1,5 @@
 // utils/seo.ts
 import { useHead } from '#app'
-import { useI18n } from 'vue-i18n'
 
 interface Hreflang {
   lang: string
@@ -12,36 +11,27 @@ interface SeoOptions {
   url: string
   image?: string
   hreflangs?: Hreflang[]
+  seoData: { title: string; description: string } // <- передаем готовые данные
 }
 
-export function setSeo({ page, url, image, hreflangs }: SeoOptions) {
-  const { t } = useI18n()
+export function setSeo({ url, image, hreflangs, seoData }: SeoOptions) {
+  const ogImage = image || 'https://adov.dev/images/og_main.png'
 
-  // Получаем SEO данные из JSON
-  const seoDataRaw = t(`seo.${page}`)
-  const seoData =
-    typeof seoDataRaw === 'string'
-      ? { title: seoDataRaw, description: seoDataRaw }
-      : (seoDataRaw as { title: string; description: string })
-
-  const ogImage = image || 'https://adovdev.com/images/og_main.png'
-
-  // JSON-LD
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'AdovDev',
     url,
-    logo: 'https://adovdev.com/svg/logo.svg',
+    logo: 'https://adov.dev/svg/logo.svg',
     sameAs: [
-      'https://t.me/adovdev',
+      'https://t.me/adov.dev',
       'https://github.com/MrL1s',
       'https://www.instagram.com/egonys.model'
     ],
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        email: 'hello@adovdev.com',
+        email: 'adovdev@gmail.com',
         contactType: 'customer service'
       }
     ]
@@ -65,7 +55,6 @@ export function setSeo({ page, url, image, hreflangs }: SeoOptions) {
     script: [
       {
         type: 'application/ld+json',
-        // В Nuxt 4 / @vueuse/head нужно использовать innerHTML вместо children
         innerHTML: JSON.stringify(jsonLd)
       }
     ]

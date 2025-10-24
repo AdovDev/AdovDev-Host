@@ -142,16 +142,17 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useI18n } from "vue-i18n";
 import { setSeo } from "~/utils/seo";
 import { useScrollReveal } from "~/composables/useScrollReveal";
+import { onMounted } from "vue";
 
 const { t, locale } = useI18n();
 
 const currentLocale = locale.value || "en"; // fallback на случай SSR
 
-const langRoute = (path: string) => {
+const langRoute = (path) => {
   if (locale.value === "ru") {
     return path === "/" ? "/ru" : "/ru" + path;
   }
@@ -159,18 +160,17 @@ const langRoute = (path: string) => {
 };
 
 setSeo({
-  page: "about", // 'services', 'contact'
-  url: `https://adovdev.com${currentLocale === "ru" ? "/ru" : ""}`,
+  title: 'about | Adov',
+  description: 'About Adov.dev',
+  page: 'about',
+  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
   hreflangs: [
-    { lang: "en", href: "https://adovdev.com" },
-    { lang: "ru", href: "https://adovdev.com/ru" },
-  ],
+    { lang: 'en', href: 'https://adov.dev' },
+    { lang: 'ru', href: 'https://adov.dev/ru' }
+  ]
 });
 
-definePageMeta({
-  title: "AdovDev - О нас",
-  description: "Мы — команда профессиональных разработчиков и дизайнеров, которые создают современные сайты... AdovDev - О нас",
+onMounted(() => {
+  useScrollReveal();
 });
-
-useScrollReveal();
 </script>

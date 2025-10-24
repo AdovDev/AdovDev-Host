@@ -5,28 +5,28 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { setSeo } from '~/utils/seo'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '~/composables/useScrollReveal';
+import { onMounted } from 'vue';
 
 const { locale } = useI18n()
 
 const currentLocale = locale.value || 'en'; // fallback на случай SSR
 
 setSeo({
-  page: 'contact', // 'services', 'contact'
-  url: `https://adovdev.com${currentLocale === 'ru' ? '/ru' : ''}`,
+  title: 'contact | Adov',
+  description: 'Contact Adov.dev',
+  page: 'contact',
+  url: `https://adov.dev${currentLocale === 'ru' ? '/ru' : ''}`,
   hreflangs: [
-    { lang: 'en', href: 'https://adovdev.com' },
-    { lang: 'ru', href: 'https://adovdev.com/ru' }
+    { lang: 'en', href: 'https://adov.dev' },
+    { lang: 'ru', href: 'https://adov.dev/ru' }
   ]
-})
-
-definePageMeta({
-  title: "AdovDev - Контакты",
-  description: "Свяжитесь с AdovDev для обсуждения вашего проекта... AdovDev - Контакты",
 });
 
-useScrollReveal();
+onMounted(() => {
+  useScrollReveal();
+});
 </script>
