@@ -1,0 +1,36 @@
+name: Deploy Nuxt to Hostinger
+
+on:
+  push:
+    branches: [ main ]  # Запуск при пуше в main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '24.5.0'  # Версия Node.js для Nuxt 4.1.3
+    
+    - name: Install dependencies
+      run: npm install  
+    
+    - name: Build Nuxt
+      run: |
+        if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+          npm run generate  # Для статического сайта (dist/)
+          # Или npm run build для SSR
+        fi
+    
+    - name: Deploy to Hostinger via FTP (для статического)
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_HOST }}  # FTP-хост из hPanel (например, ftp.adovdev.com)
+        username: ${{ secrets.FTP_USER }}  # Ваш FTP-логин
+        password: ${{ secrets.FTP_PASS }}  # FTP-пароль
+        local-dir: ./dist/  # Папка с собранными файлами
+        server-dir: ./public_html/  # Целевая папка на хостинге
+        exclude: ['**/.git*', '**/node_modules/**']  # Исключения
