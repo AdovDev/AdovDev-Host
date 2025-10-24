@@ -24,7 +24,7 @@ export function setSeo({ url, image, hreflangs }: SeoOptions) {
 
   const baseUrl = getBaseUrl();
   const finalUrl = baseUrl + url; // для canonical и og:url
-  const ogImage = image || "/images/og_main.png";
+  const ogImage = image || "https://adovdev.com/images/og_main.png";
 
   const jsonLdWebPage = {
     "@context": "https://schema.org",
@@ -32,6 +32,15 @@ export function setSeo({ url, image, hreflangs }: SeoOptions) {
     name: seoData.title,
     description: seoData.description,
     url: finalUrl,
+  };
+
+  const jsonLdOrganization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: seoData.title,
+    description: seoData.description,
+    url: baseUrl,
+    logo: "https://adovdev.com/svg/logo.svg",
   };
 
   useHead({
@@ -65,6 +74,11 @@ export function setSeo({ url, image, hreflangs }: SeoOptions) {
         type: "application/ld+json",
         innerHTML: JSON.stringify(jsonLdWebPage),
       },
+      {
+        type: "application/ld+json",
+        innerHTML: JSON.stringify(jsonLdOrganization),
+      },
     ],
+
   });
 }

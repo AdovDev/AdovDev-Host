@@ -109,8 +109,9 @@
     "socials": "Socials"
   },
   "about": {
+    "about": "History AdovDev",
     "title": "About",
-    "description": "For over 4 years, we have been creating web projects from scratch to fully finished solutions, collaborating with entrepreneurs worldwide. More than 150 projects: design, frontend, backend.",
+    "description": "For over 4 years, we have been creating web projects from scratch to fully finished solutions, collaborating with entrepreneurs worldwide...",
     "projects": "150+ projects",
     "fullDev": "Full development: design, frontend, mobile applications, Telegram bots, and much more.",
     "tournament": "We have been participating in programming tournaments worldwide for over 3 years and are 3-time vice-champions of WorldSkills PVL.",
@@ -123,5 +124,14 @@
     "button": "Learn More",
     "egor": "Egor (MrL1s)",
     "egorDescription": "Fullstack developer & designer, co-founder of the studio, over 5 years of design experience and more than 2 years in development."
+  },
+  "hide": {
+    "about":"History AdovDev",
+    "title": "Read more",
+    "titleIlyas": "Read more about Ilyas",
+    "titleEgor": "Read more about Egor",
+    "index": "Our studio was founded 4 years ago. We started on Kwork, creating landing pages on Tilda, gradually improving our skills and moving to professional development. Today, we create mobile applications, websites, landing pages, online stores, Telegram and Discord bots, admin panels, CRM systems, dynamic and static sites. Our methods are unique and tailored individually for each client. Among our achievements is collaboration with MoneshopPhuket in Thailand: we developed a payment terminal, mobile app, main website, admin panel with currency rates and multiple APIs — over 4000 lines of code working flawlessly. Our goal is to be the best among competitors and remain unparalleled, because we are innovation itself.",
+    "egor": "I am a fullstack developer and designer with over 5 years of experience. I have 3+ years in design and 2 years in development. My individual projects include creating an anti-DDoS system on Django using Nmap, as well as developing our studio's website. I hold CodemastersPro Vue.js certificates, having mastered frontend development in just 3 months. My tech stack includes HTML, HTMX, CSS, SCSS, JS, TS, Go, Python, PHP, Laravel, Django, Flask, DRF, Tailwind, Astro, Vue.js, Nuxt.js, React.js, WebNative, Capacitor, Ionic. I give 100% in my work, creating what seems impossible for others, and I graduated with honors in Software Engineering.",
+    "ilyas": "I am a fullstack developer and co-founder of the studio, holding an honors degree in Development. I am a 3-time Vice Champion of WorldSkills Pavlodar. Pragmatic and highly skilled, I write clean code. My tech stack includes Vue.js, HTML, CSS, JS, PHP, Laravel, Django, Python. Together with Egor, we manage the studio, constantly improving processes and delivering high-quality projects. One of our notable achievements is creating a payment terminal in just 3 days, which still works flawlessly in Thailand. We provide the best service and support clients at every stage — all are satisfied with the results and speed of development."
   }
 }

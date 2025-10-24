@@ -1,6 +1,6 @@
 <template>
   <main
-    class="flex flex-col px-0 w-full items-center justify-center gap-32 mt-10 max-[26.5rem]:mt-10"
+    class="flex flex-col px-0 w-full items-center justify-center gap-32 mt-10 max-[26.5rem]:mt-15"
   >
     <!-- Hero Section -->
     <section class="flex flex-col items-center w-full">
@@ -24,6 +24,12 @@
             <p class="text-lg sm:text-xl text-start text-gray-300">
               {{ t("index.description") }}
             </p>
+            <NuxtLink
+              :to="langRoute('/about')"
+              class="cursor-pointer px-4 py-2 bg-white/5 border-2 border-white/15 rounded-full text-white hover:bg-white/10 transition-all font-semibold text-lg flex justify-center items-center"
+            >
+              {{ t("about.title") }} →
+            </NuxtLink>
           </div>
 
           <!-- Right Content -->
@@ -93,6 +99,9 @@ import { useI18n } from "vue-i18n";
 import { setSeo } from "~/utils/seo";
 import { useScrollReveal } from "~/composables/useScrollReveal";
 import { useCounter } from "~/composables/useCounter";
+
+const langRoute = (path) =>
+  locale.value === "ru" ? (path === "/" ? "/ru" : "/ru" + path) : path;
 
 const { t, locale } = useI18n();
 

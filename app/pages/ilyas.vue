@@ -79,6 +79,66 @@
         </div>
       </div>
     </div>
+
+    <!-- button popup -->
+    <div
+      class="text-lg sm:text-xl fade-up max-[60rem]:text-center text-start text-gray-300 relative"
+    >
+      <button
+        class="border-b-2 border-white/20 text-white hover:scale-105 transition-all font-semibold text-lg cursor-pointer"
+        @click="openIlyas"
+      >
+        {{ t("hide.titleIlyas") }}
+      </button>
+    </div>
+
+    <!-- popup history -->
+    <div
+      v-if="ilyasPopup"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+      @click.self="closeIlyas"
+    >
+      <div
+        class="bg-white/5 backdrop-blur-glass shadow-glass border border-gray-500/20 rounded-4xl max-w-2xl w-full mx-4 p-4 min-[30rem]:p-8 relative animate-fadeIn max-h-[80vh] overflow-hidden"
+      >
+        <button
+          class="absolute backdrop-blur-glass shadow-glass top-0 right-0 bg-black/45 border-2 border-white/15 p-4 rounded-bl-4xl rounded-tr-4xl cursor-pointer text-white transition-all"
+          @click="closeIlyas"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hover:scale-130 transition-all hover:rotate-90"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <h1 class="text-xl min-[30rem]:text-3xl font-bold mb-4">
+          {{ t("hide.title") }}
+        </h1>
+
+        <!-- Scrollable content -->
+        <div
+          class="overflow-y-auto max-h-[64vh] pr-2"
+          style="-webkit-overflow-scrolling: touch"
+        >
+          <h3
+            class="text-lg min-[30rem]:text-xl font-normal whitespace-pre-line"
+          >
+            {{ t("hide.ilyas") }}
+          </h3>
+          <!-- при необходимости добавь дополнительные параграфы -->
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -88,6 +148,15 @@ import { setSeo } from "~/utils/seo";
 import { useScrollReveal } from "~/composables/useScrollReveal";
 
 const { t, locale } = useI18n();
+
+const ilyasPopup = ref(false);
+
+const openIlyas = () => {
+  ilyasPopup.value = true;
+};
+const closeIlyas = () => {
+  ilyasPopup.value = false;
+};
 
 const awards = [
   { title: "WorldSkills Buisness", year: "2022", icon: "/svg/trophy.svg" },
