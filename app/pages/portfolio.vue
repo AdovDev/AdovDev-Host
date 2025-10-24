@@ -4,25 +4,22 @@
   </div>
 </template>
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { setSeo } from '~/utils/seo'
-import { useScrollReveal } from '~/composables/useScrollReveal';
+import { useI18n } from "vue-i18n";
+import { setSeo } from "~/utils/seo";
+import { useScrollReveal } from "~/composables/useScrollReveal";
 
 const { locale } = useI18n();
 
 if (import.meta.client) {
   const currentLocale = locale.value || "en";
+  const localePath = currentLocale === "ru" ? "/ru/" : "/";
 
   setSeo({
     page: "portfolio",
-    seoData: {
-      title: "Portfolio",
-      description: "Portfolio Adov.dev",
-    },
-    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    url: localePath,
     hreflangs: [
-      { lang: "en", href: "https://adov.dev" },
-      { lang: "ru", href: "https://adov.dev/ru" },
+      { lang: "en", href: "/" },
+      { lang: "ru", href: "/ru/" },
     ],
   });
 }

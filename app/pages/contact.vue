@@ -12,20 +12,16 @@ import { useScrollReveal } from "~/composables/useScrollReveal";
 
 const { locale } = useI18n();
 
-// Только на клиенте, чтобы prerender не падал
 if (import.meta.client) {
   const currentLocale = locale.value || "en";
+  const localePath = currentLocale === "ru" ? "/ru/" : "/";
 
   setSeo({
     page: "contact",
-    seoData: {
-      title: "Contact",
-      description: "Contact Adov.dev",
-    },
-    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    url: localePath,
     hreflangs: [
-      { lang: "en", href: "https://adov.dev" },
-      { lang: "ru", href: "https://adov.dev/ru" },
+      { lang: "en", href: "/" },
+      { lang: "ru", href: "/ru/" },
     ],
   });
 }

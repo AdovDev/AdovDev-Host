@@ -99,21 +99,17 @@ const { t, locale } = useI18n();
 const years = useCounter(4, 2000);
 const projects = useCounter(150, 3000);
 const clients = useCounter(6, 2500);
-    
 
 if (import.meta.client) {
   const currentLocale = locale.value || "en";
+  const localePath = currentLocale === "ru" ? "/ru/" : "/";
 
   setSeo({
     page: "index",
-    seoData: {
-      title: "Home",
-      description: "Welcome to Adov.dev",
-    },
-    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    url: localePath,
     hreflangs: [
-      { lang: "en", href: "https://adov.dev" },
-      { lang: "ru", href: "https://adov.dev/ru" },
+      { lang: "en", href: "/" },
+      { lang: "ru", href: "/ru/" },
     ],
   });
 }

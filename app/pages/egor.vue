@@ -24,7 +24,7 @@
 
     <!-- Achievements -->
     <div
-      class="mt-16 max-[40rem]:w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 "
+      class="mt-16 max-[40rem]:w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6"
     >
       <div
         v-for="award in awards"
@@ -42,7 +42,9 @@
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("egor.awards") }}
       </h2>
-      <div class="grid grid-cols-1 min-[40rem]:grid-cols-2 min-[60rem]:grid-cols-3 gap-6">
+      <div
+        class="grid grid-cols-1 min-[40rem]:grid-cols-2 min-[60rem]:grid-cols-3 gap-6"
+      >
         <div
           v-for="award in awards"
           :key="award.title + '-stand'"
@@ -65,7 +67,12 @@
           :key="social.name"
           class="flex flex-col items-center gap-2 backdrop-blur-glass shadow-glass bg-white/5 border hover:bg-white/10 border-white/10 rounded-3xl p-4 shadowDev hover:scale-102 transition-all duration-300"
         >
-          <a :href="social.link" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center gap-2">
+          <a
+            :href="social.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col justify-center items-center gap-2"
+          >
             <img :src="social.icon" alt="icon" class="w-8 h-8" />
             <span class="text-xs opacity-80">{{ social.name }}</span>
           </a>
@@ -104,21 +111,17 @@ const socials = [
 
 if (import.meta.client) {
   const currentLocale = locale.value || "en";
+  const localePath = currentLocale === "ru" ? "/ru/" : "/";
 
   setSeo({
     page: "egor",
-    seoData: {
-      title: "Egor Korkin",
-      description: "SEO of Adov.dev",
-    },
-    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    url: localePath,
     hreflangs: [
-      { lang: "en", href: "https://adov.dev" },
-      { lang: "ru", href: "https://adov.dev/ru" },
+      { lang: "en", href: "/" },
+      { lang: "ru", href: "/ru/" },
     ],
   });
 }
 
 useScrollReveal();
-
 </script>

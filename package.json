@@ -25,6 +25,7 @@
     "flag-icons": "^7.5.0",
     "gsap": "^3.13.0",
     "nuxt": "^4.0.1",
+    "nuxt-i18n": "^6.28.1",
     "nuxt-seo-kit": "^1.3.13",
     "reka-ui": "^2.4.1",
     "tailwindcss": "^4.1.11",

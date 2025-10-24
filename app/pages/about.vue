@@ -167,7 +167,6 @@ import { useI18n } from "vue-i18n";
 import { setSeo } from "~/utils/seo";
 import { useScrollReveal } from "~/composables/useScrollReveal";
 
-
 const { t, locale } = useI18n();
 
 const langRoute = (path) => {
@@ -177,24 +176,19 @@ const langRoute = (path) => {
   return path;
 };
 
-// Только на клиенте, чтобы generate не падал
 if (import.meta.client) {
   const currentLocale = locale.value || "en";
+  const localePath = currentLocale === "ru" ? "/ru/" : "/";
 
   setSeo({
     page: "about",
-    seoData: {
-      title: "About",
-      description: "About Adov.dev",
-    },
-    url: `https://adov.dev${currentLocale === "ru" ? "/ru" : ""}`,
+    url: localePath,
     hreflangs: [
-      { lang: "en", href: "https://adov.dev" },
-      { lang: "ru", href: "https://adov.dev/ru" },
+      { lang: "en", href: "/" },
+      { lang: "ru", href: "/ru/" },
     ],
   });
 }
 
 useScrollReveal();
-
 </script>
