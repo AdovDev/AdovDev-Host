@@ -38,7 +38,7 @@
     </div>
 
     <!-- Awards Stand -->
-    <div class="mt-20 mb-16 text-center fade-up">
+    <div class="mt-20 mb-16 max-[40rem]:w-full  text-center fade-up">
       <h2 class="text-2xl mb-6 font-semibold textAdov">
         {{ t("ilyas.awards") }}
       </h2>

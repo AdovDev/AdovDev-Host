@@ -24,7 +24,7 @@
 
     <!-- Achievements -->
     <div
-      class="mt-16 w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 "
+      class="mt-16 max-[40rem]:w-full fade-up max-w-4xl grid md:grid-cols-3 sm:grid-cols-2 gap-6 "
     >
       <div
         v-for="award in awards"
