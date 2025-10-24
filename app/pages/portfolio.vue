@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-30 flex flex-col gap-10">
+  <div class="w-full my-30 flex flex-col gap-10">
     <ProjectsSection />
   </div>
 </template>

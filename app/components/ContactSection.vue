@@ -3,7 +3,7 @@
     id="contacts"
     class="py-10 w-full bg-gradient-to-br bgFonDev relative"
   >
-    <div class="container w-full mx-auto">
+    <div class="w-full">
       <div class="grid grid-cols-1 w-full min-[60rem]:grid-cols-2 gap-12 items-center min-[60rem]:justify-between justify-center border-gray-800 pt-10">
         
         <!-- Левая часть — форма -->

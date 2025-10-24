@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto gap-10 flex flex-col">
+  <section class="w-full mx-auto gap-10 flex flex-col">
     <!-- Фильтры -->
     <div class="flex flex-wrap justify-between items-center gap-4">
       <div
