@@ -30,7 +30,7 @@ export default defineNuxtConfig({
       { code: "en", file: "en.json", name: "English" },
       { code: "ru", file: "ru.json", name: "Русский" },
     ],
-    baseUrl: "https://adovdev.com",
+    baseUrl: "https://adov.dev",
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_redirected",

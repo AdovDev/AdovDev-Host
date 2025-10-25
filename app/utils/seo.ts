@@ -24,7 +24,7 @@ export function setSeo({ url, image, hreflangs }: SeoOptions) {
 
   const baseUrl = getBaseUrl();
   const finalUrl = baseUrl + url; // для canonical и og:url
-  const ogImage = image || "https://adovdev.com/images/og_main.png";
+  const ogImage = image || "https://adov.dev/images/og_main.png";
 
   const jsonLdWebPage = {
     "@context": "https://schema.org",
@@ -40,7 +40,7 @@ export function setSeo({ url, image, hreflangs }: SeoOptions) {
     name: seoData.title,
     description: seoData.description,
     url: baseUrl,
-    logo: "https://adovdev.com/svg/logo.svg",
+    logo: "https://adov.dev/svg/logo.svg",
   };
 
   useHead({

@@ -4,14 +4,9 @@
 User-agent: *
 Allow: /
 
-# Запрещаем индексацию вспомогательных страниц, если есть (например, админка)
-Disallow: /admin
-Disallow: /login
-Disallow: /register
-
 # Ссылки на sitemap для поисковых систем
-Sitemap: https://adovdev.com/sitemap.xml
-Sitemap: https://adovdev.com/sitemap-ru.xml
+Sitemap: https://adov.dev/sitemap.xml
+Sitemap: https://adov.dev/sitemap-ru.xml
 
 # Настройка кэширования
 Crawl-delay: 1

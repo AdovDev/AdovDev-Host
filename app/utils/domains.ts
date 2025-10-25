@@ -2,11 +2,11 @@
 import { useRequestHeaders } from "#imports";
 
 export function getBaseUrl() {
-  if (import.meta.env.DEV) return "https://adov.dev"; // локальная разработка
+  if (import.meta.env.DEV) return "https://adovdev.com"; // локальная разработка
 
   if (import.meta.env.DEPLOYMENT === "server") {
     const host = useRequestHeaders().host;
-    if (host?.includes("adovdev.com")) return "https://adovdev.com";
+    if (host?.includes("adov.dev")) return "https://adov.dev";
   }
-  return "https://adov.dev"; // вторичный домен
+  return "https://adovdev.com"; // вторичный домен
 }

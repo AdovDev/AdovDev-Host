@@ -2,7 +2,7 @@ import { getRoutes } from "~/utils/routes";
 
 export default defineEventHandler(async (event) => {
   const routes = getRoutes(); // получаем список всех маршрутов для sitemap
-  const baseUrl = "https://adovdev.com";
+  const baseUrl = "https://adov.dev";
   const currentDate = new Date().toISOString();
 
   const urls = routes
