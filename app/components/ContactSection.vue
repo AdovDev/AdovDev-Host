@@ -4,10 +4,13 @@
     class="py-10 w-full bg-gradient-to-br bgFonDev relative"
   >
     <div class="w-full">
-      <div class="grid grid-cols-1 w-full min-[60rem]:grid-cols-2 gap-12 items-center min-[60rem]:justify-between justify-center border-gray-800 pt-10">
-        
+      <div
+        class="grid grid-cols-1 w-full min-[60rem]:grid-cols-2 gap-12 items-center min-[60rem]:justify-between justify-center border-gray-800 pt-10"
+      >
         <!-- Левая часть — форма -->
-        <div class="flex flex-col md:flex-row items-center justify-center min-[60rem]:justify-start relative">
+        <div
+          class="flex flex-col md:flex-row items-center justify-center min-[60rem]:justify-start relative"
+        >
           <div
             class="bg-gradient-to-br rounded-4xl shadowDev to-white/10 from-white/5 shadow-glass p-8 border border-white/20 w-full max-w-md"
           >
@@ -23,8 +26,9 @@
                   }}</label>
                   <input
                     v-model="form.firstName"
+                    required
                     class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-300/40 outline-0 transition duration-300 ease-in-out"
-                  >
+                  />
                 </div>
                 <div class="flex flex-col">
                   <label class="block text-sm text-white mb-2">{{
@@ -32,8 +36,9 @@
                   }}</label>
                   <input
                     v-model="form.lastName"
+                    required
                     class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                  >
+                  />
                 </div>
               </div>
 
@@ -43,9 +48,10 @@
                 }}</label>
                 <input
                   v-model="form.email"
+                  required
                   type="email"
                   class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                >
+                />
               </div>
 
               <div class="flex flex-col">
@@ -55,7 +61,7 @@
                 <input
                   v-model="form.phone"
                   class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
-                >
+                />
               </div>
 
               <div class="flex flex-col">
@@ -81,7 +87,9 @@
           </div>
 
           <!-- Hover Actions (адаптированы под мобильные устройства) -->
-          <div class="flex max-[75rem]:hidden md:flex-col ml-0 md:ml-4 mt-6 md:mt-0 space-x-4 md:space-x-0">
+          <div
+            class="flex max-[75rem]:hidden md:flex-col ml-0 md:ml-4 mt-6 md:mt-0 space-x-4 md:space-x-0"
+          >
             <!-- Telegram -->
             <div
               class="group relative w-12 h-30 cursor-pointer bg-gradient-to-br from-blue-500/5 to-blue-600/5 rounded-t-full flex items-center justify-center border border-blue-500/20"
@@ -140,22 +148,75 @@
         </div>
       </div>
     </div>
+    <!-- popup contact -->
+    <div
+      v-if="showSuccessPopup"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+      @click.self="closePopup()"
+    >
+      <div
+        class="bg-white/5 backdrop-blur-glass shadow-glass border border-gray-500/20 rounded-4xl max-w-2xl w-full mx-4 p-4 min-[30rem]:p-8 relative animate-fadeIn max-h-[80vh] overflow-hidden"
+      >
+        <!-- Close button -->
+        <button
+          class="absolute backdrop-blur-glass shadow-glass top-0 right-0 bg-black/45 border-2 border-white/15 p-4 rounded-bl-4xl rounded-tr-4xl cursor-pointer text-white transition-all"
+          @click="closePopup()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hover:scale-130 transition-all hover:rotate-90"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <!-- Title -->
+        <h1 class="text-xl min-[30rem]:text-3xl font-bold mb-4 text-center">
+          {{ t("contactSection.popup.title") }}
+        </h1>
+
+        <!-- Scrollable content -->
+        <div
+          class="overflow-y-auto max-h-[64vh] pr-2 space-y-4 text-center"
+          style="-webkit-overflow-scrolling: touch"
+        >
+          <p
+            class="text-lg min-[30rem]:text-xl font-normal whitespace-pre-line text-white/90"
+          >
+            {{ t("contactSection.popup.text") }}
+          </p>
+        </div>
+
+        <!-- OK button -->
+        <button
+          class="mt-6 w-full bg-teal-600/50 hover:bg-teal-600 text-white font-bold py-3 rounded-full transition-all"
+          @click="closePopup()"
+        >
+          {{ t("contactSection.popup.button") }}
+        </button>
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup>
 import { reactive, ref } from "vue";
 import { useI18n } from "#i18n";
-
 const { t } = useI18n();
 
-const mail = () => {
-  window.open("mailto:adovdev@gmail.com");
-};
+const mail = () => window.open("mailto:adovdev@gmail.com");
+const telegram = () => window.open("https://t.me/adovdev", "_blank");
 
-const telegram = () => {
-  window.open("https://t.me/adovdev", "_blank");
-};
+const showSuccessPopup = ref(false);
+const closePopup = () => (showSuccessPopup.value = false);
 
 const form = reactive({
   firstName: "",
@@ -167,12 +228,43 @@ const form = reactive({
 
 const isSubmitting = ref(false);
 
-function submitForm() {
+const submitForm = async () => {
+  if (isSubmitting.value) return;
   isSubmitting.value = true;
-  console.log(form);
-  setTimeout(() => {
-    isSubmitting.value = false;
-    alert(t("contactSection.formSent"));
-  }, 1000);
-}
+
+  try {
+    const token = await grecaptcha.execute(
+      "6LeP0vYrAAAAAMjDl6Y1prpKgRRUU_PyRV4tUXpm",
+      { action: "submit" }
+    );
+
+    const response = await fetch("/vendor/submit.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        token: token,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.status === "success") {
+      showSuccessPopup.value = true;
+      Object.keys(form).forEach((key) => (form[key] = ""));
+    } else {
+      alert(data.message || "Error");
+    }
+  } catch {
+    alert("Request failed. Try again later.");
+  }
+
+  isSubmitting.value = false;
+};
 </script>

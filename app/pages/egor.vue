@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bgFonDev text-white flex flex-col items-center pt-30"
+    class="min-h-screen bgFonDev text-white flex flex-col items-center max-[19rem]:mt-40 max-[30rem]:mt-55 max-[50rem]:mt-30 mt-30"
   >
     <!-- Header block -->
     <div class="flex flex-col items-center text-center gap-4">

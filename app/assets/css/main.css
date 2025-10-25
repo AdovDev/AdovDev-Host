@@ -14,7 +14,6 @@ link {
     -webkit-backdrop-filter: blur(8px) saturate(160%) brightness(120%);
     box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05),
       inset 0 0 12px rgba(255, 255, 255, 0.04);
-
   }
 
   /* — Эффект жидкого стекла — */
@@ -46,6 +45,13 @@ link {
   /* — Глобальный фон — */
   .bgFonDev {
     background-color: #03040a;
+  }
+  
+  /* global.css или main.css */
+  .grecaptcha-badge {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none;
   }
 
   /* — Текстовые эффекты — */

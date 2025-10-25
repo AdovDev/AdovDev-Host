@@ -23,7 +23,7 @@
 
         <!-- Desktop Navigation -->
         <nav
-          class="hidden min-[60rem]:flex items-center duration-300 space-x-8"
+          class="hidden min-[62rem]:flex items-center duration-300 space-x-8"
         >
           <NuxtLink
             :to="langRoute('/')"
@@ -48,7 +48,7 @@
         </nav>
 
         <!-- Mobile Hamburger -->
-        <div class="flex items-center min-[60rem]:hidden relative">
+        <div class="flex items-center min-[62rem]:hidden relative">
           <button class="buttonMobile" @click="toggleMobileMenu">
             <svg
               v-if="!isMobileMenuOpen"
@@ -141,7 +141,7 @@
         </div>
 
         <!-- Language / Contact Buttons for desktop -->
-        <div class="hidden min-[60rem]:flex items-center space-x-4 relative">
+        <div class="hidden min-[62rem]:flex items-center space-x-4 relative">
           <!-- Language Switcher -->
           <div ref="langWrapper" class="relative">
             <button

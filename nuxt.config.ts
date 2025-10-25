@@ -20,6 +20,13 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/png", href: "/favicon.png" },
         { rel: "apple-touch-icon", href: "/favicon.png" },
       ],
+      script: [
+        {
+          src: "https://www.google.com/recaptcha/api.js?render=6LeP0vYrAAAAAMjDl6Y1prpKgRRUU_PyRV4tUXpm",
+          async: true,
+          defer: true,
+        },
+      ],
     },
   },
   i18n: {

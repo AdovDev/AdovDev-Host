@@ -1,17 +1,17 @@
 <template>
   <main
-    class="flex flex-col px-0 w-full items-center justify-center gap-32 mt-10 max-[26.5rem]:mt-15"
+    class="flex flex-col px-0 w-full items-center justify-center gap-32 max-[19rem]:mt-75 max-[30rem]:mt-57 max-[40rem]:mt-45 max-[50rem]:mt-45 max-[60rem]:mt-30 mt-12"
   >
     <!-- Hero Section -->
     <section class="flex flex-col items-center w-full">
       <div
-        class="flex flex-col h-screen gap-30 justify-center items-center w-full max-[10rem]:mt-30 max-[20rem]:mt-30 max-[30rem]:mt-20 max-[50rem]:mt-20 mt-0"
+        class="flex flex-col h-screen gap-30 justify-center items-center w-full"
       >
         <div
           class="grid grid-cols-1 min-[60rem]:grid-cols-2 text-start justify-center items-center lg:gap-20 w-full"
         >
           <!-- Left Content -->
-          <div class="gap-10 flex fade-up flex-col max-[60rem]:my-20">
+          <div class="gap-10 flex fade-up flex-col text-center min-[60rem]:mt-5 min-[60rem]:text-start max-[60rem]:my-20">
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal">
               {{ t("index.title") }}
               <span class="text-teal-400 textAdov font-semibold">
@@ -21,7 +21,7 @@
                 >
               </span>
             </h1>
-            <p class="text-lg sm:text-xl text-start text-gray-300">
+            <p class="text-lg sm:text-xl text-center min-[60rem]:text-start text-gray-300">
               {{ t("index.description") }}
             </p>
             <NuxtLink
