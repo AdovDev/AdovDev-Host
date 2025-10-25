@@ -49,6 +49,9 @@ link {
   
   /* global.css или main.css */
   .grecaptcha-badge {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none;
