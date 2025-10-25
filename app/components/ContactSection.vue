@@ -212,12 +212,13 @@
 <script setup>
 import { reactive, ref } from "vue";
 import { useI18n } from "#i18n";
+
 const { t } = useI18n();
 
 const mail = () => window.open("mailto:adovdev@gmail.com");
 const telegram = () => window.open("https://t.me/adovdev", "_blank");
 
-const showPopup = ref(false); // теперь универсальный попап
+const showPopup = ref(false); // универсальный попап
 const popupTitle = ref(""); // заголовок попапа
 const popupText = ref(""); // текст попапа
 const closePopup = () => (showPopup.value = false);
@@ -255,7 +256,13 @@ const submitForm = async () => {
       }),
     });
 
+    if (!response.ok) {
+      console.error("HTTP error:", response.status, response.statusText);
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
+    console.log("Server response:", data);
 
     if (data.status === "success") {
       popupTitle.value = t("contactSection.popup.title");
@@ -266,15 +273,16 @@ const submitForm = async () => {
       popupTitle.value = t("contactSection.popup.titleError");
       popupText.value = data.message || t("contactSection.popup.textError");
       showPopup.value = true;
-      console.log("error");
+      console.error("Form submission error:", data);
     }
-  } catch {
+  } catch (err) {
     popupTitle.value = t("contactSection.popup.titleError");
     popupText.value = t("contactSection.popup.textError");
     showPopup.value = true;
-    console.log("error");
+    console.error("SubmitForm exception:", err);
+  } finally {
+    isSubmitting.value = false;
   }
-
-  isSubmitting.value = false;
 };
 </script>
+
