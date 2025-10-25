@@ -55,9 +55,11 @@
     "infoText": "Ready to discuss your project? Fill out the form and we'll contact you shortly.",
     "formSent": "Form sent!",
     "popup": {
-      "title": "Message Sent!",
-      "text": "Thank you for contacting us!\nWe will get back to you soon.",
-      "button": "OK"
+      "title": "Message sent",
+      "text": "Thank you! We will contact you shortly.",
+      "button": "OK",
+      "titleError": "Submission error",
+      "textError": "An error occurred while submitting the form. Please try again later."
     }
   },
   "egor": {

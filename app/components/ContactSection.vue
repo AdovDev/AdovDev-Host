@@ -19,11 +19,12 @@
             </h2>
 
             <form class="space-y-6" @submit.prevent="submitForm">
+              <!-- Поля формы (firstName, lastName, email, phone, message) -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
-                  <label class="block text-sm text-white mb-2">{{
-                    t("contactSection.firstName")
-                  }}</label>
+                  <label class="block text-sm text-white mb-2">
+                    {{ t("contactSection.firstName") }}
+                  </label>
                   <input
                     v-model="form.firstName"
                     required
@@ -31,9 +32,9 @@
                   />
                 </div>
                 <div class="flex flex-col">
-                  <label class="block text-sm text-white mb-2">{{
-                    t("contactSection.lastName")
-                  }}</label>
+                  <label class="block text-sm text-white mb-2">
+                    {{ t("contactSection.lastName") }}
+                  </label>
                   <input
                     v-model="form.lastName"
                     required
@@ -43,9 +44,9 @@
               </div>
 
               <div class="flex flex-col">
-                <label class="block text-sm text-white mb-2">{{
-                  t("contactSection.email")
-                }}</label>
+                <label class="block text-sm text-white mb-2">
+                  {{ t("contactSection.email") }}
+                </label>
                 <input
                   v-model="form.email"
                   required
@@ -55,9 +56,9 @@
               </div>
 
               <div class="flex flex-col">
-                <label class="block text-sm text-white mb-2">{{
-                  t("contactSection.phone")
-                }}</label>
+                <label class="block text-sm text-white mb-2">
+                  {{ t("contactSection.phone") }}
+                </label>
                 <input
                   v-model="form.phone"
                   class="border-white/20 border-2 px-4 py-2 rounded-full focus:border-teal-400/30 outline-0 transition duration-300 ease-in-out"
@@ -65,9 +66,9 @@
               </div>
 
               <div class="flex flex-col">
-                <label class="block text-sm text-white mb-2">{{
-                  t("contactSection.message")
-                }}</label>
+                <label class="block text-sm text-white mb-2">
+                  {{ t("contactSection.message") }}
+                </label>
                 <textarea
                   v-model="form.message"
                   rows="3"
@@ -78,15 +79,15 @@
 
               <button
                 type="submit"
+                :disabled="isSubmitting"
                 class="w-full cursor-pointer bg-gray-700/90 hover:bg-teal-600/30 text-white font-bold py-2 rounded-full transition duration-300 ease-in-out"
-                :loading="isSubmitting"
               >
                 {{ t("contactSection.send") }}
               </button>
             </form>
           </div>
 
-          <!-- Hover Actions (адаптированы под мобильные устройства) -->
+          <!-- Hover Actions (Telegram и Email) -->
           <div
             class="flex max-[75rem]:hidden md:flex-col ml-0 md:ml-4 mt-6 md:mt-0 space-x-4 md:space-x-0"
           >
@@ -148,11 +149,12 @@
         </div>
       </div>
     </div>
-    <!-- popup contact -->
+
+    <!-- Попап -->
     <div
-      v-if="showSuccessPopup"
+      v-if="showPopup"
       class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-      @click.self="closePopup()"
+      @click.self="closePopup"
     >
       <div
         class="bg-white/5 backdrop-blur-glass shadow-glass border border-gray-500/20 rounded-4xl max-w-2xl w-full mx-4 p-4 min-[30rem]:p-8 relative animate-fadeIn max-h-[80vh] overflow-hidden"
@@ -160,7 +162,7 @@
         <!-- Close button -->
         <button
           class="absolute backdrop-blur-glass shadow-glass top-0 right-0 bg-black/45 border-2 border-white/15 p-4 rounded-bl-4xl rounded-tr-4xl cursor-pointer text-white transition-all"
-          @click="closePopup()"
+          @click="closePopup"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +182,7 @@
 
         <!-- Title -->
         <h1 class="text-xl min-[30rem]:text-3xl font-bold mb-4 text-center">
-          {{ t("contactSection.popup.title") }}
+          {{ popupTitle }}
         </h1>
 
         <!-- Scrollable content -->
@@ -191,14 +193,14 @@
           <p
             class="text-lg min-[30rem]:text-xl font-normal whitespace-pre-line text-white/90"
           >
-            {{ t("contactSection.popup.text") }}
+            {{ popupText }}
           </p>
         </div>
 
         <!-- OK button -->
         <button
-          class="mt-6 w-full bg-teal-600/50 hover:bg-teal-600 text-white font-bold py-3 rounded-full transition-all"
-          @click="closePopup()"
+          class="mt-6 w-full bg-teal-600/50 cursor-pointer hover:bg-teal-600 text-white font-bold py-3 rounded-full transition-all"
+          @click="closePopup"
         >
           {{ t("contactSection.popup.button") }}
         </button>
@@ -215,8 +217,10 @@ const { t } = useI18n();
 const mail = () => window.open("mailto:adovdev@gmail.com");
 const telegram = () => window.open("https://t.me/adovdev", "_blank");
 
-const showSuccessPopup = ref(false);
-const closePopup = () => (showSuccessPopup.value = false);
+const showPopup = ref(false); // теперь универсальный попап
+const popupTitle = ref(""); // заголовок попапа
+const popupText = ref(""); // текст попапа
+const closePopup = () => (showPopup.value = false);
 
 const form = reactive({
   firstName: "",
@@ -240,29 +244,35 @@ const submitForm = async () => {
 
     const response = await fetch("/vendor/submit.php", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
         phone: form.phone,
         message: form.message,
-        token: token,
+        token,
       }),
     });
 
     const data = await response.json();
 
     if (data.status === "success") {
-      showSuccessPopup.value = true;
+      popupTitle.value = t("contactSection.popup.title");
+      popupText.value = t("contactSection.popup.text");
+      showPopup.value = true;
       Object.keys(form).forEach((key) => (form[key] = ""));
     } else {
-      alert(data.message || "Error");
+      popupTitle.value = t("contactSection.popup.titleError");
+      popupText.value = data.message || t("contactSection.popup.textError");
+      showPopup.value = true;
+      console.log("error");
     }
   } catch {
-    alert("Request failed. Try again later.");
+    popupTitle.value = t("contactSection.popup.titleError");
+    popupText.value = t("contactSection.popup.textError");
+    showPopup.value = true;
+    console.log("error");
   }
 
   isSubmitting.value = false;
