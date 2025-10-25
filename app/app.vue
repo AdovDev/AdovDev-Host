@@ -2,7 +2,11 @@
   <div class="relative min-h-screen bgFonDev sm:mx-30 max-[40rem]:mx-10">
 
     <!-- Прелоадер -->
-    <div id="page-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80">
+    <div
+      v-show="showPreloader"
+      id="page-preloader"
+      class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80"
+    >
       <div class="loader border-4 border-t-teal-400 border-gray-700 rounded-full w-16 h-16 animate-spin"></div>
     </div>
 
@@ -17,9 +21,11 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useScrollReveal } from "~/composables/useScrollReveal";
 
 const isHidden = ref(false);
+const showPreloader = ref(true);
 let lastScroll = 0;
 let scrollTimeout = null;
 
+// Скролл-хидер
 const handleScroll = () => {
   const currentScroll = window.scrollY;
   if (Math.abs(currentScroll - lastScroll) < 10) return;
@@ -38,21 +44,32 @@ const handleScroll = () => {
   }, 500);
 };
 
+// Убираем прелоадер после полной загрузки страницы
+const hidePreloader = () => {
+  const preloader = document.getElementById("page-preloader");
+  if (preloader) {
+    preloader.classList.add("opacity-0");
+    setTimeout(() => {
+      showPreloader.value = false;
+      preloader.remove();
+    }, 300); // плавный фейд
+  }
+};
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 
-  // Убираем прелоадер после полной загрузки страницы
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("page-preloader");
-    if (preloader) {
-      preloader.classList.add("opacity-0");
-      setTimeout(() => preloader.remove(), 300); // плавный фейд
-    }
-  });
+  // Если уже загрузилось до mounted
+  if (document.readyState === "complete") {
+    hidePreloader();
+  } else {
+    window.addEventListener("load", hidePreloader);
+  }
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("load", hidePreloader);
 });
 
 // Анимации

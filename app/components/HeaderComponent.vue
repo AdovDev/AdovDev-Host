@@ -299,6 +299,12 @@ const handleDocumentClick = (e) => {
 };
 
 onMounted(() => {
+  // Восстановление языка
+  const savedLang = localStorage.getItem("adovdev-lang");
+  if (savedLang && savedLang !== locale.value) {
+    setLocale(savedLang);
+  }
+
   window.addEventListener("scroll", handleScroll, { passive: true });
   document.addEventListener("click", handleDocumentClick);
 });
