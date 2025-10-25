@@ -242,7 +242,7 @@ const submitForm = async () => {
       { action: "submit" }
     );
 
-    const response = await fetch("/vendor/send.php", {
+    const response = await fetch("~~/vendor/send.php", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
